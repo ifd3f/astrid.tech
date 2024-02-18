@@ -1,0 +1,6 @@
+debug/
+.env
+target/
+result
+.direnv
+
