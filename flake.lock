@@ -192,11 +192,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1708300714,
-        "narHash": "sha256-jGQOMYJTfamBB4nHpaToCbjjmA+ekPldG9AF3n9dybI=",
+        "lastModified": 1708303672,
+        "narHash": "sha256-VP+nETbn3TUWRuW6i+DLSpfZvzy2rT9A484iG6doBI4=",
         "owner": "ifd3f",
         "repo": "seams",
-        "rev": "d883fbca644dd51dffdf19f8ee62afae7ec8f1b4",
+        "rev": "37ca7a32c82e37732bb06d1234d55c618ff150f8",
         "type": "github"
       },
       "original": {
