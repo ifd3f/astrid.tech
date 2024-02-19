@@ -139,7 +139,11 @@
     },
     "purescript-overlay": {
       "inputs": {
-        "nixpkgs": ["seams", "dream2nix", "nixpkgs"],
+        "nixpkgs": [
+          "seams",
+          "dream2nix",
+          "nixpkgs"
+        ],
         "slimlock": "slimlock"
       },
       "locked": {
@@ -188,11 +192,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1708299075,
-        "narHash": "sha256-YloYPu6XH80jU05bMu20lH3y2S7GMGWc8Sfm6TawiZg=",
+        "lastModified": 1708300714,
+        "narHash": "sha256-jGQOMYJTfamBB4nHpaToCbjjmA+ekPldG9AF3n9dybI=",
         "owner": "ifd3f",
         "repo": "seams",
-        "rev": "4029da98229079b54a63721d3ca77ba6d8771bb0",
+        "rev": "d883fbca644dd51dffdf19f8ee62afae7ec8f1b4",
         "type": "github"
       },
       "original": {
@@ -203,7 +207,12 @@
     },
     "slimlock": {
       "inputs": {
-        "nixpkgs": ["seams", "dream2nix", "purescript-overlay", "nixpkgs"]
+        "nixpkgs": [
+          "seams",
+          "dream2nix",
+          "purescript-overlay",
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1688610262,
