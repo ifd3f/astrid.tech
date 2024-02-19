@@ -139,11 +139,7 @@
     },
     "purescript-overlay": {
       "inputs": {
-        "nixpkgs": [
-          "seams",
-          "dream2nix",
-          "nixpkgs"
-        ],
+        "nixpkgs": ["seams", "dream2nix", "nixpkgs"],
         "slimlock": "slimlock"
       },
       "locked": {
@@ -207,12 +203,7 @@
     },
     "slimlock": {
       "inputs": {
-        "nixpkgs": [
-          "seams",
-          "dream2nix",
-          "purescript-overlay",
-          "nixpkgs"
-        ]
+        "nixpkgs": ["seams", "dream2nix", "purescript-overlay", "nixpkgs"]
       },
       "locked": {
         "lastModified": 1688610262,
