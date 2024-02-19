@@ -1,0 +1,7 @@
+- title: Welcome to astrid.tech v3!
+  time: 2024-02-18 16:05:48 -0800
+  content: >
+    This is the third major redesign of my website! This time, it has been
+    totally rewritten as a static site in Rust. The build pipeline has been made
+    significantly less complicated. I will publish a blog post Soon™ about the
+    process.
