@@ -7,13 +7,20 @@
 
   outputs = { self, nixpkgs, flake-utils, seams, ... }:
     flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = import nixpkgs { inherit system; };
-      in {
-        packages.default = seams.lib.makeSite {
+      let
+        pkgs = import nixpkgs { inherit system; };
+        site = seams.lib.makeSite {
           inherit pkgs;
           name = "astrid.tech";
           content = ./.;
         };
+        withCname = pkgs.runCommand "astrid.tech" { } ''
+          mkdir -p $out
+          cp -ar ${site}/* ${site}/.* $out/
+          echo 'astrid.tech' > $out/CNAME
+        '';
+      in {
+        packages.default = withCname;
         devShells.default = with pkgs;
           mkShell {
             buildInputs =
