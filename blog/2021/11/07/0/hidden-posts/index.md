@@ -1,5 +1,5 @@
 ---
-title: null
+title: Hidden posts
 tags:
   - project:astrid-tech
 slug:
