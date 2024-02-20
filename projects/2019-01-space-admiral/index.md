@@ -14,7 +14,7 @@ tags:
   - kd-tree
 url:
   source:
-    - https://github.com/astridyu/Space-Admiral
+    - https://github.com/ifd3f/Space-Admiral
 ---
 
 A real-time multiplayer strategy game similar to games in the Total War

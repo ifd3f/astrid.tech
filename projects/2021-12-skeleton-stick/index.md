@@ -15,8 +15,8 @@ tags:
   - latex
 url:
   source:
-    - https://github.com/astridyu/skeleton_stick
-thumbnail: ./unlocked.jpg
+    - https://github.com/ifd3f/skeleton_stick
+thumbnail: https://s3.us-west-000.backblazeb2.com/nyaabucket/6f0dcf14c7061aa645a3593d611686a733160e15e3dc973145429ac382111d82/unlocked.jpg
 ---
 
 Skeleton Stick is a hardware password manager designed to bridge the gap between

@@ -22,8 +22,8 @@ tags:
 url:
   site: https://collision.zone
   source:
-    - https://github.com/astridyu/collision-zone
-thumbnail: ./thumbnail.gif
+    - https://github.com/ifd3f/collision-zone
+thumbnail: https://s3.us-west-000.backblazeb2.com/nyaabucket/ad72604434e53b51fb3eedc2398fb395d1475e8a103d87a1b13ea9a4f5d58f34/thumbnail.gif
 ---
 
 An IO game that involves cars crashing into each other. It used to be located at
@@ -89,13 +89,13 @@ The general high-level flow is as follows:
 
 During gameplay, the instance server's sockets use a custom binary protocol to
 send game updates in order to reduce bandwidth as much as humanly possible. See
-[this document](https://github.com/astridyu/collision-zone/blob/main/GameProtocol.md)
+[this document](https://github.com/ifd3f/collision-zone/blob/main/GameProtocol.md)
 for its specification.
 
 ## Fun facts!
 
 - The initial prototype was created during
-  [HSHacks III](https://github.com/astridyu/HSHacks-III) back in 2017 under the
+  [HSHacks III](https://github.com/ifd3f/HSHacks-III) back in 2017 under the
   name of "High Octane Elastic Snowploughs." The backend was a Flask site
   serving a Socket.IO connection, and the frontend drew everything using a basic
   Canvas API,

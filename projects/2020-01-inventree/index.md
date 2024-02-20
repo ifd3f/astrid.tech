@@ -19,7 +19,7 @@ tags:
   - python
 url:
   source:
-    - https://github.com/astridyu/Inventree
+    - https://github.com/ifd3f/Inventree
 ---
 
 Short for "Inventory Tree."
@@ -28,7 +28,7 @@ I have a messy room with too many disorganized things in random places. This
 program will (hopefully) allow me to keep track of things better with the power
 of QR codes.
 
-[An attempt was made back in 2018](https://github.com/astridyu/inv5026) to
+[An attempt was made back in 2018](https://github.com/ifd3f/inv5026) to
 implement something similar, but it failed due to my lack of experience.
 
 ## Technology Stack

@@ -22,7 +22,7 @@ tags:
   - under-construction
 url:
   source:
-    - https://github.com/astridyu/infra
+    - https://github.com/ifd3f/infra
 thumbnail: /2021/01/27/0/pi-clustering/nodezzz.jpeg
 ---
 
@@ -67,13 +67,13 @@ This is a setup I use whenever I have roommates. We have a router for the rest
 of the house, and I have a router specifically for my room. Just like Texas with
 ERCOT!
 
-![The Texas power grid compared to the rest of US/Canada.](./ercot.jpg)
+![The Texas power grid compared to the rest of US/Canada.](https://s3.us-west-000.backblazeb2.com/nyaabucket/85c9534d527f670a3a319847c9f1626a9adbd524b61fcab9e7e40eadd4c8be41/ercot.jpg)
 
 The reason I do this is so that I don't accidentally break the rest of the LAN
 with my shenanigans. In other words, I expect that I'll end up like Texas, but
 I'm trying to prevent the problems from reaching everyone else.
 
-![Pictured: my network segment when I accidentally knock down the DNS.](./texas-snowstorm.jpg)
+![Pictured: my network segment when I accidentally knock down the DNS.](https://s3.us-west-000.backblazeb2.com/nyaabucket/1c097d4ce80fd999e803da03a28893ac9c80e6bdd4ef06e1f617b6174ba46602/texas-snowstorm.jpg)
 
 Now, this does make setup slightly more of a hassle, especially with the problem
 of port forwarding, but that's acceptable.
@@ -255,7 +255,7 @@ I consider this v1 of my homelab because it was something actually functional
 for a while. Although the service declarations were in a sort of modular Docker
 Compose architecture, they were all updated manually by SSHing in and
 essentially running `git pull && docker-compose up`.
-[Here is the last version of the configs](https://github.com/astridyu/infra/tree/v1-final)
+[Here is the last version of the configs](https://github.com/ifd3f/infra/tree/v1-final)
 before I incorporated it into the rest of my monorepo.
 
 ### v2 - On-Premises Cloud
@@ -268,7 +268,7 @@ computers. It seemed awkward to manually allocate services to specific ones,
 
 It was mostly set up manually, with a few Ansible scripts to semi-automate tasks
 like upgrading software, and a few Terraform configs to create databases.
-[Here is what the infra repo looked like by the time I set up v2.](https://github.com/astridyu/infra/tree/v2-final)
+[Here is what the infra repo looked like by the time I set up v2.](https://github.com/ifd3f/infra/tree/v2-final)
 
 #### On-Site Hardware
 
@@ -408,7 +408,7 @@ digraph {
 | Prometheus | Metrics       | Stores and indexes metrics             | k3s                 |
 | Grafana    | Visualization | Graphs and visualizes everything!      | k3s                 |
 
-![Look at this graaaaaaaph, every time I look it makes me laugh](./grafana.png)
+![Look at this graaaaaaaph, every time I look it makes me laugh](https://s3.us-west-000.backblazeb2.com/nyaabucket/b167562aa0be8ac3f1c5de3a1958eafc29dfa56c8ea9c78e10a2916dc8da1c30/grafana.png)
 
 #### Reflection
 

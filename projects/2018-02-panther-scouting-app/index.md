@@ -16,7 +16,7 @@ tags:
   - cross-platform
 url:
   source:
-    - https://github.com/astridyu/Scouting-App-old
+    - https://github.com/ifd3f/Scouting-App-old
 ---
 
 At FIRST Robotics Competition events, teams usually scout matches that other

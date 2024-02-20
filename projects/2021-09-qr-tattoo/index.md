@@ -14,13 +14,13 @@ tags:
   - augmented-reality
 url:
   source:
-    - https://github.com/astridyu/armqr
-thumbnail: ./thumbnail.jpg
+    - https://github.com/ifd3f/armqr
+thumbnail: https://s3.us-west-000.backblazeb2.com/nyaabucket/12cac5f4b5f482a0e390a33120d544e1a2bbdb22f26a1d2c08c7de0baad2c893/thumbnail.jpg
 ---
 
 I have a QR code tattooed to my arm. It leads to any link I want it to point to.
 
-![My tattoo!](./thumbnail.jpg)
+![My tattoo!](https://s3.us-west-000.backblazeb2.com/nyaabucket/12cac5f4b5f482a0e390a33120d544e1a2bbdb22f26a1d2c08c7de0baad2c893/thumbnail.jpg)
 
 Here are some blog posts associated with this project:
 
@@ -30,4 +30,4 @@ Here are some blog posts associated with this project:
 
 ## Tattoo Controller Server
 
-![A screenshot of the admin panel.](./admin.jpg)
+![A screenshot of the admin panel.](https://s3.us-west-000.backblazeb2.com/nyaabucket/0f6b1f1d5014891a6f64577686f5f80f04e423125d877be2d6c2123398422fa8/admin.jpg)

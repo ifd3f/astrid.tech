@@ -21,7 +21,7 @@ I guess I'm a travel blogger now.
 
 ## Context
 
-![Domino meme. Small domino: meeting some random girl at a queer Halloween party you went to on a whim. Big domino: going to some a chemistry conference in San Diego](./domino-meme.jpg)
+![Domino meme. Small domino: meeting some random girl at a queer Halloween party you went to on a whim. Big domino: going to some a chemistry conference in San Diego](https://s3.us-west-000.backblazeb2.com/nyaabucket/144a3978e2a5238f35a3eb1f6ed661d6b4cc019302f3bfb3786e82e7efb22af6/domino-meme.jpg)
 
 So I met [this girl named Alia Lescoulie](https://alescoulie.github.io) at a
 queer Halloween party last fall and we kinda hit it off; we both used Linux, we
@@ -67,7 +67,7 @@ not legal tender, but an attempt at prosletyzing us. On the back, it said that
 if I had looked upon a woman in lust, then I was an adulterer that would go to
 hell.
 
-![The million dollar bill.](./million-dollars.png)
+![The million dollar bill.](https://s3.us-west-000.backblazeb2.com/nyaabucket/58614ecc05183a9820494edc9443e2c8d5af8129ae2b1b9d64d4e32ebc19e707/million-dollars.png)
 
 There have been plenty of times where I woke up and thought my girlfriend was
 really cute, so I guess I'll be going to hell. I mean, I'm already going to hell
@@ -146,7 +146,7 @@ were talking about last night. We tried their software and it was very cool;
 they even let you view animated MD trajectories. Perhaps we can get Dr. McDonald
 to buy a Quest 2 for our new lab.
 
-![Alia using the Nanome software at the Expo.](./nanome.jpg)
+![Alia using the Nanome software at the Expo.](https://s3.us-west-000.backblazeb2.com/nyaabucket/63d58937a3c05f9a006585487135f4ec4e62501546ba4e1fcc6ad94c702b85b4/nanome.jpg)
 
 Another interesting thing we saw at the expo was Sigma Aldrich's
 recently-released graph theory-based organic synthesis solver, meaning our idea
@@ -197,7 +197,7 @@ that symposium. Unfortunately, it was scheduled to end 1 hour before the poster
 session, so we planned ahead by eating lunch at Sushi 2 and bringing home some
 sushi to-go for dinner.
 
-![Us getting sushi for lunch.](./sushi-2.jpg)
+![Us getting sushi for lunch.](https://s3.us-west-000.backblazeb2.com/nyaabucket/048a601bb0703b0d452c2e357651da6e9de6b6ed9e4d74de8b01cc0acd1cd5d1/sushi-2.jpg)
 
 ### Mackerell Symposium
 
