@@ -13,8 +13,16 @@
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/2ca2995b84198b4fbed4aacf73411f0b9e24ebee8f01dc053c390900e1fca50d/css.jpg
   title: CSS is awesome
 
+- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/58d365783f4d998349a96017abff9dc5c632268d97bbd7e8d6cf488337038a0d/she-her.gif
+  alt: she/her
+  title: she/her
+
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/200f390aa47af2c79d5c3e2efdf8d1a7f450247212a80a4e831bff4878112706/css-is-difficult.gif
   title: CSS is difficult
+
+- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/9f97d76cdb5307577e9da1810101a81e0948f29cfbcbbbe3bb1e084af1b97344/they-them.gif
+  alt: they/them
+  title: they/them
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/2a918136aec72a6b8e343e495be09107eb42b891d766fa2d6a5c9cf79fd44986/latex.gif
   title: LaTeX is cool
@@ -44,11 +52,16 @@
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/4213f08b9639fde9885d9bab8c373eed07848090d4ac3602ec498b427096d7be/rainbow.gif
   title: homosexual
 
-- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/b2594904090b293f71180cc2d29ee9e89232317d57b8df732fad5f4e96ad4fb9/gaywebring.gif
+- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/78d49e1c2f6a8f4eff6266a73f0c9a11ac0ca8dd522ae088eb7b7ff7bf19818f/gaywomen.gif
   title: gay
+
+- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/95cb63040658237d2ee77224e78429466d00fa4e871b03d3932cde89afc3177d/you-cant-just-88x31.png
+  alt: astrid, you can't just make random things an 88x31
+  title: i can and i will
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/cf83bdbc82548bb7ae3345b52f97e01d3c47c13d73655e3e687fcf7a7e3115b3/right2repair.gif
   title: stop making your shit unfixable
+  href: https://www.repair.org/
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/be3c902daa7219ef1bc8b70acf5fcb1d59068ff23f1ca6d02fdb76058551c58f/rss-button.gif
   href: /feed.rss
@@ -62,9 +75,6 @@
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/e0bfadf6ab6686645e7ad042be741eb2434cf1e8a3321baf581e7915ab74f71d/transnow2.gif
   title: you should trans yourself. NOW!
 
-- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/78d49e1c2f6a8f4eff6266a73f0c9a11ac0ca8dd522ae088eb7b7ff7bf19818f/gaywomen.gif
-  title: gay women
-
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/6f3b4ce39b9d98746110c67a42287129d72d9ccbc170d61970f4bf98ad37e66a/under-construction.gif
   title: what site isn't?
 
@@ -76,8 +86,10 @@
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/d60a9b327a20f1dd09a58ae9d459e75bacf257c5c68e0b7e09792aef225cde53/wikipedia2.gif
   href: https://www.wikipedia.org/
+  alt: Wikipedia
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/5b22a3ee145e6168870173747cfb1e7ff880666c7358f46ebfd40d0d1281ab2e/paws.gif
+  alt: made with MY OWN TWO PAWS
   title: >
     bites u bites u sorry i mean bites u sorry i mean bites u bites u sorry i
     mean bites u bites u sorry i mean
@@ -88,10 +100,34 @@
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/ead5be94f6e3acb885bb34ff8b0b7cef2e703117b673b7041fbce8512aad1167/ieget5.gif
   href: https://www.microsoft.com/en-us/download/details.aspx?id=53313
+  alt: Get Microsoft Internet Explorer 5.0!
+  title: yes you can still get it i don't know how
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/c933e591127a47bdb7394cd81dcec6f9d66820d410fbca286fbca8f89677dbfb/fckingwww.gif
+  alt: fucking webmaster
   title: >
     i'm sorry for breaking things ;-;
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/1d19de8c307bd3cb0c724e43f528846ccfffd34fad3543293c89748be1035e4f/xp.gif
   onclick: playRandomXPSound()
+
+- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/a31ac656f3d977514d1596173d9623830362b2156c9253d9e73af00738dfa0cc/debian-lesbian-2.png
+  alt: Debian - the Linux for Lesbians
+  title: Debian - the Linux for Lesbians
+
+- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/0f94ebe9ae7ffa58bdd96d8fa7bd7cf1236f21c86bff59c6f2918f3e89aa937c/imgur-button.png
+  title: The image you are requesting does not exist or is no longer available.
+
+- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/a731ad659334ccda89398b4839fd9e72f2dc3119d3d51ddc5713a2c0288994ef/preserve.gif
+  alt: Internet archive
+  href: https://archive.org/
+
+- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/5edbfe27c6b3f687d31db4ce6393102f2cea33a13cf9a13ee2c0d6b72e54aaf9/poweredbyasm_88x31.gif
+  alt: powered by ASM
+  title:
+    okay, you got me, it isn't, but imagine how fucking funny it would be if my
+    site was
+
+- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/c01f4ad4d475a24c2d922c3602b0082b04ebe6e9040c035e6c191d437751d3d9/stop-windows.gif
+  onclick: |
+    new Audio("https://s3.us-west-000.backblazeb2.com/nyaabucket/1545426a09c148905973b1eb8e12d89f2fa27831c688dc7d4139ae23b1e37301/windows-95-error-sound-effect.mp3").play()
