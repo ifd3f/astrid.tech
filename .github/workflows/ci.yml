@@ -25,6 +25,10 @@ jobs:
             "system-features = nixos-test benchmark big-parallel kvm"
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
+      - uses: cachix/cachix-action@v14
+        with:
+          name: astralbijection
+
       - name: Build static site
         run: nix build
 
