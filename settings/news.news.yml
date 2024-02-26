@@ -5,3 +5,11 @@
     totally rewritten as a static site in Rust. The build pipeline has been made
     significantly less complicated. I will publish a blog post Soon™ about the
     process.
+
+- time: 2024-02-25 19:40:30 -0800
+  content: |
+    Oops, I forgot I had my news box despite the fact that it is in the dead
+    center of my homepage.
+
+    I did end up making [a blog post about the redesign](https://astrid.tech/2024/02/20/0/astrid-dot-tech-redesign/),
+    and [another one in the meantime about the Conda Package Manager](https://astrid.tech/2024/02/24/0/conda-recipe-selector-abuse/).
