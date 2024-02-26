@@ -1,6 +1,23 @@
 - pending: False
   prev: "https://webring.xxiivv.com/#astralbijection"
   next: "https://webring.xxiivv.com/#astralbijection"
-  html: |
+  html: >
     <a href="https://webring.xxiivv.com">xxiivv</a>
 
+- pending: True
+  prev: "https://webring.bucketfish.me/redirect.html?to=prev&name=astrid%20dot%20tech"
+  next: "https://webring.bucketfish.me/redirect.html?to=next&name=astrid%20dot%20tech"
+  html: >
+    🏳️‍🌈  <a href="https://webring.bucketfish.me">
+     bucket webring
+    </a> 🏳️‍🌈 (pending)
+
+- pending: True
+  prev: "https://fediring.net/previous?host=astrid.tech"
+  next: "https://fediring.net/next?host=astrid.tech"
+  html: >
+    <a href="https://fediring.net/">
+      <img
+        src="https://s3.us-west-000.backblazeb2.com/nyaabucket/13dc50474138eea457c5be22e6cb833bdc706bd0329b62c32318e7b270cc9d06/fediring.gif"
+        alt="fediring">
+    </a> (pending)
