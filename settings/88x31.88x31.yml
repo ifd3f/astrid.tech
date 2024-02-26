@@ -27,6 +27,10 @@
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/2a918136aec72a6b8e343e495be09107eb42b891d766fa2d6a5c9cf79fd44986/latex.gif
   title: LaTeX is cool
 
+- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/dfd9ff93565bf88f42187af7eb02e4dafc391afa6bdce67ba9d3d675e2506245/lisp_alien_drew.gif
+  alt: green alien associated with lisp having five eyes waves a triangular flag that reads Drew
+  href: https://drewsh.com
+
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/320bd476a68af56aff788e5669b1842e4e0405da41266dc75aaa49465ef37e07/linux-powered.gif
   title: I use NixOS btw
 
@@ -73,6 +77,10 @@
   title: this, too, is yuri
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/e0bfadf6ab6686645e7ad042be741eb2434cf1e8a3321baf581e7915ab74f71d/transnow2.gif
+  alt: trans rights now
+
+- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/b9ba594061e2e0361cd89e06081078dd8dded8c66ada8a7286d8b8f2018ce310/trans-your-gender.gif
+  href: https://diyhrt.wiki/
   title: you should trans yourself. NOW!
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/6f3b4ce39b9d98746110c67a42287129d72d9ccbc170d61970f4bf98ad37e66a/under-construction.gif
