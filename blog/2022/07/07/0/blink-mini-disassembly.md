@@ -18,6 +18,8 @@ slug:
 date:
   created: 2022-07-07 14:38:11-07:00
   published: 2022-07-07 14:38:11-07:00
+syndications:
+  - https://news.ycombinator.com/item?id=33683122
 ---
 
 Strap in kids, this post is about me physically hacking apart Amazon's

@@ -12,6 +12,8 @@ slug:
 date:
   created: 2022-04-04 20:00:07-07:00
   published: 2022-04-04 20:00:07-07:00
+syndications:
+  - https://news.ycombinator.com/item?id=31390600
 ---
 
 **EDIT Sun May 15 10:38:34 PM PDT 2022:**

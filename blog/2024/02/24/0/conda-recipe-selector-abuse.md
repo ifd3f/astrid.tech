@@ -12,6 +12,8 @@ slug:
 date:
   created: 2024-02-23 23:22:51-08:00
   published: 2024-02-24 01:25:25-08:00
+syndications:
+  - https://news.ycombinator.com/item?id=39490740
 ---
 
 I was trying to submit a Conda package to
