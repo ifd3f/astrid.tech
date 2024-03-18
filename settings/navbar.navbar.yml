@@ -1,0 +1,11 @@
+- href: /blog
+  id: blog
+  display: Blog
+
+- href: /projects
+  id: projects
+  display: Projects
+
+- href: /about
+  id: about
+  display: "About"
