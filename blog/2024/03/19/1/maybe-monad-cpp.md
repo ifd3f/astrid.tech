@@ -5,7 +5,8 @@ tagline:
 tags:
   - cpp
   - functional-programming
-  - shitpost
+  - haskell
+  - monads
 slug:
   ordinal: 0
   name: maybe-monad-cpp
