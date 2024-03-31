@@ -8,7 +8,7 @@ tags:
   - haskell
   - monads
 slug:
-  ordinal: 0
+  ordinal: 1
   name: maybe-monad-cpp
 date:
   created: 2024-03-19 23:57:45-07:00
