@@ -30,6 +30,7 @@ Well, thanks to C++'s amazing operator overload system, I was able to write some
 code that fixes the problem!
 
 Here's some Haskell code:
+
 ```haskell
 module Main where
 
