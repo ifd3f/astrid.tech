@@ -131,7 +131,7 @@ build:
 I ran `conda build`:
 
 ```
-nyaaaaaa(base) [astrid@lab test]$ conda build .
+(base) [astrid@lab test]$ conda build .
 WARNING: No numpy version specified in conda_build_config.yaml.  Falling back to default numpy value of 1.22
 Adding in variants from internal_defaults
 Skipped: simplejson from /home/astrid/test defines build/skip for this configuration ({'target_platform': 'linux-64', 'python': '3.11'}).
@@ -292,8 +292,10 @@ keys, and more!
 
 The great thing about open source is that you can actually answer this question!
 
-In the [conda-build repository](conda-build-repo), I searched for `eval`, and
-[this was the function][eval-line] that seems to do it.
+In the [conda-build repository](https://github.com/conda/conda-build), I
+searched for `eval`, and
+[this was the function](https://github.com/conda/conda-build/blob/cc7bb532eff61451853a8195f39688a2101a9548/conda_build/metadata.py#L255-L257)
+that seems to do it.
 
 ```python
 # We evaluate the selector and return True (keep this line) or False (drop this line)
@@ -308,10 +310,11 @@ def eval_selector(selector_string, namespace, variants_in_place):
         ...
 ```
 
-This code was last touched... [2017, in PR #1753](pr-1753). And that wasn't the
-thing that actually introduced the `eval()`, that commit just moved it to a
-different place.
-[Here's what it used to look like before that commit](older-eval-line):
+This code was last touched...
+[2017, in PR #1753](https://github.com/conda/conda-build/pull/1753). And that
+wasn't the thing that actually introduced the `eval()`, that commit just moved
+it to a different place.
+[Here's what it used to look like before that commit](https://github.com/conda/conda-build/blob/761b3dc00e85ab3f8e7443417cd1d3888d2cce04/conda_build/metadata.py#L109-L112):
 
 ```python
 def select_lines(data, namespace):
@@ -327,30 +330,18 @@ def select_lines(data, namespace):
 
 ```
 
-The comment came [in this 2016 commit](fixes-recommended) from either
-[a group called Quantified Code](qc-github-org) (whose website,
-[www.quantifiedcode.com](qc-broken-website), appears to no longer work), or some
-automated tool they appear to have written. The `eval()`, on the other hand,
-came from
-[this 2,532-line commit in 2014 with the very informative title of "add new files"](add-new-files-commit).
+The comment came
+[in this 2016 commit](https://github.com/conda/conda-build/commit/d52852da9722e4b9b19664f7d0614b5ee5dfebdf#diff-a3f5613bda9366e31149c65731327047d4e29204c9e0508fd55416115b39a6bdR110-R111)
+from either [a group called Quantified Code](https://github.com/quantifiedcode)
+(whose website, [www.quantifiedcode.com](http://www.quantifiedcode.com/),
+appears to no longer work), or some automated tool they appear to have written.
+The `eval()`, on the other hand, came from
+[this 2,532-line commit in 2014 with the very informative title of "add new files"](https://github.com/conda/conda-build/commit/fe7f773010f4c8c200298c83a4164ca404626d52#diff-a3f5613bda9366e31149c65731327047d4e29204c9e0508fd55416115b39a6bdR52-R53).
 
 I tried searching the issues to see if anyone has complained about how silly
 this `eval()` is, but I didn't find anything. Perhaps people don't mind at all.
 Perhaps there are even other people out there who are including shell scripts in
 their selectors!
-
-[pr-1753]: https://github.com/conda/conda-build/pull/1753
-[conda-build-repo]: https://github.com/conda/conda-build
-[eval-line]:
-  https://github.com/conda/conda-build/blob/cc7bb532eff61451853a8195f39688a2101a9548/conda_build/metadata.py#L255-L257
-[older-eval-line]:
-  https://github.com/conda/conda-build/blob/761b3dc00e85ab3f8e7443417cd1d3888d2cce04/conda_build/metadata.py#L109-L112
-[fixes-recommended]:
-  https://github.com/conda/conda-build/commit/d52852da9722e4b9b19664f7d0614b5ee5dfebdf#diff-a3f5613bda9366e31149c65731327047d4e29204c9e0508fd55416115b39a6bdR110-R111
-[add-new-files-commit]:
-  https://github.com/conda/conda-build/commit/fe7f773010f4c8c200298c83a4164ca404626d52#diff-a3f5613bda9366e31149c65731327047d4e29204c9e0508fd55416115b39a6bdR52-R53
-[qc-github-org]: https://github.com/quantifiedcode
-[qc-broken-website]: http://www.quantifiedcode.com/
 
 ## Conclusion
 
