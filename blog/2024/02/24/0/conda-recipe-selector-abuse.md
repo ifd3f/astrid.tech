@@ -1,5 +1,5 @@
 ---
-title: Abusing Conda's Turing-Complete YAML Comments
+title: Abusing Conda's YAML comments that are actually Python expressions
 tagline: my favorite build system, jinja-preprocessed-eval-preprocessed YAML
 tags:
   - python
@@ -12,6 +12,7 @@ slug:
 date:
   created: 2024-02-23 23:22:51-08:00
   published: 2024-02-24 01:25:25-08:00
+  updated: 2024-04-18 08:06:17-07:00
 syndications:
   - https://news.ycombinator.com/item?id=39490740
 ---
@@ -370,3 +371,5 @@ arbitrarily-executable YAML comments.
 > integration/continuous deployment (CI/CD) workflows. This capability fosters a
 > culture of innovation, enabling rapid iteration, experimentation, and
 > optimization, while ensuring infrastructure scalability and reliability.
+
+EDIT 2024-04-18: make title more informative
