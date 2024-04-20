@@ -11,19 +11,18 @@ slug:
 date:
   created: 2024-02-26 18:50:56-08:00
   published: 2024-02-26 19:55:36-08:00
+  updated: 2024-04-19 19:43:17-07:00
 ---
 
 Hey, remember how I used to blog regularly? Remember how astrid.tech used to get
 a new post every few weeks? Remember when the last post wasn't over a year ago?
-[Remember that Blink Mini reverse-engineering series I did 2 years ago that I never ended up finishing](blink-mini-re)?
+[Remember that Blink Mini reverse-engineering series I did 2 years ago that I never ended up finishing](https://astrid.tech/2022/07/07/0/blink-mini-disassembly/)?
 I thought I would milk a post out of my own technical ineptitude during that
 era.
 
-[blink-mini-re]: https://astrid.tech/2022/07/07/0/blink-mini-disassembly/
-
-Please note that I _would_ have placed more images in this post, but the fact
+~~Please note that I _would_ have placed more images in this post, but the fact
 that it's been over a year means that most of the data has gone out of
-retention.
+retention.~~ EDIT: i found the screenshots!!!
 
 ## Day of the incident
 
@@ -37,7 +36,7 @@ post in a while.
 
 I went to my site, and I was presented with a Vercel error page.
 
-[insert Vercel error page here]
+![This deployment has been disabled. 402 Payment Required](https://s3.us-west-000.backblazeb2.com/nyaabucket/19e0f2f009d1a26e69e135b50b749f218ac6235f36d3a0ff3fb29d74f81dee51.png)
 
 Oh no.
 
@@ -46,8 +45,10 @@ it's exceeded the quota. "Nonsense," I said. "There's no way my website could
 exceed my quota. Nobody reads it!"
 
 But the graphs said otherwise. They said that my quota was very, very, very
-exceeded. In fact, I was 10 times above the quota, at 100G of egress when I
-should have had a max of 10G of egress!
+exceeded. In fact, I was 3.13 times above the quota, at 313G of egress when I
+should have had a max of 100G of egress!
+
+![egress graphs showing 313% over thee limit](https://s3.us-west-000.backblazeb2.com/nyaabucket/789cc0924bfced20becc77834794f23047a837c69604bc943afecc0c4511784b.png)
 
 ### Spying on my users and selling their data
 
@@ -67,7 +68,7 @@ But still, that didn't explain why I was making so much egress. I'm only serving
 a bit of HTML, right? Going back to Vercel, I looked at an egress breakdown by
 link... and it was entirely out of the images.
 
-[insert image of the image links eating all my valuable egress]
+![all my valuable egress is being eaten by jpgs and pngs](https://s3.us-west-000.backblazeb2.com/nyaabucket/166c2ef6d05b06b65866a2f8ab73f0f1cb4072c35be8f8ba8b7a776e033363a4.png)
 
 In other words, I had to move images out of Vercel and onto something else.
 
@@ -103,8 +104,7 @@ to files hosted in Backblaze.
 
 The last thing to do was go and ask Vercel to lift my quota. Honestly, I'm
 surprised they didn't just cut off my website as soon as I hit the limit, and
-that they were actually generous enough to let it go on for 3 days before
-blocking me.
+that they were actually generous enough to let it go to 313% before blocking me.
 
 I filed a support issue in Vercel:
 
@@ -148,3 +148,5 @@ and astrid.tech was back in business!
 ## Conclusion
 
 just use object storage for your images, y'all
+
+EDIT: i found the images again and put them in
