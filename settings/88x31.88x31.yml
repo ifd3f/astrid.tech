@@ -4,13 +4,16 @@
   href: https://astrid.tech
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/09d914dd25cb0460b9042ede089b8875fdb2681390c0f365065e990cc58ce43b/CC_BY-SA_3_icon_88x31.png
+  alt: CC BY-SA 4.0
   title: This website is CC BY-SA 4.0 licensed!
   href: https://creativecommons.org/licenses/by-sa/4.0/
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/ec5eef56bf713a6d1e468b6103b8e867e82ab3a88df72571836be80a63d76f64/made-with-css.gif
+  alt: made with CSS
   title: This website uses CSS
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/2ca2995b84198b4fbed4aacf73411f0b9e24ebee8f01dc053c390900e1fca50d/css.jpg
+  alt: CSS is awesome but the text leaves the border
   title: CSS is awesome
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/58d365783f4d998349a96017abff9dc5c632268d97bbd7e8d6cf488337038a0d/she-her.gif
@@ -18,6 +21,7 @@
   title: she/her
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/200f390aa47af2c79d5c3e2efdf8d1a7f450247212a80a4e831bff4878112706/css-is-difficult.gif
+  alt: CSS is difficult but the text leaves the border
   title: CSS is difficult
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/9f97d76cdb5307577e9da1810101a81e0948f29cfbcbbbe3bb1e084af1b97344/they-them.gif
@@ -25,6 +29,7 @@
   title: they/them
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/2a918136aec72a6b8e343e495be09107eb42b891d766fa2d6a5c9cf79fd44986/latex.gif
+  alt: LaTeX
   title: LaTeX is cool
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/dfd9ff93565bf88f42187af7eb02e4dafc391afa6bdce67ba9d3d675e2506245/lisp_alien_drew.gif
@@ -38,32 +43,70 @@
   title: this person does a lot of cool retro computer stuff!!!
   href: https://reimu.info/
 
+- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/87edaa5d52becf54538de0872a65b1910b8cb2ba45055973c80115e46c8fc6a1/seirdy.png
+  alt: seirdy
+  title: seirdy is cool!
+  href: https://seirdy.one/
+
+- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/f1c1a5a81e84c85cfcf1eabbaefe6c503fe26274022b125055d04feb6b2b026f/miku-approved.png
+  alt: this site is MIKU APPROVED
+  title: miku, miku, oo ee oo
+  href: https://ooo.eeeee.ooo/
+
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/320bd476a68af56aff788e5669b1842e4e0405da41266dc75aaa49465ef37e07/linux-powered.gif
+  alt: Linux powered
   title: I use NixOS btw
 
+- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/ff15b2195b965642eea0d9b793b66e856459445f934db0c00017e31ac79af0d9/powered_by_nixos.gif
+  alt: powered by NixOS
+  title: declarative!
+  href: https://nixos.org
+
+- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/36c0df9339988d0e4b3ff9a0df9c50ce1d0fd58bd2281f7c6a4e3261c6203932/built_with_nix.gif
+  alt: built with Nix
+  title: reproducible!
+  href: https://nixos.org
+
+- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/5ad28bd32dca5c46cefe03fd6b2f1fb965c65caaa281c50b2fe70a60e71ff096/animated-haskell.gif
+  alt: animated haskell logo
+  title: it's a language!
+  href: https://www.haskell.org/
+
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/4d4c3a7e7063215d3ff5d82998b093d36c42c4d7281e53bb5fee7e5cf58f7e35/madewithvi.gif
+  alt: made with vi
   title: actually neovim but like,
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/9e15319f41c74ed282ca08bbac1bd313a6045fe579425f978af7d69c8e143e89/minecraft.gif
+  alt: minecraft
   href: https://www.minecraft.net
   title: i came to dig dig dig dig
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/6cd0fbec553f0c07e824879412ee36ddefa50c4f0463e32729043b1dc9979fa1/noaa.gif
+  alt: probe passing by that says NOAA
   href: https://www.noaa.gov/
 
+- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/49b0beadb7cd52188172d4278500a5e935eedfd27872caf7f2f0bdbf75000f5f/lain.2347988494.png
+  alt: lain
+  title: let's all love lain!
+
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/b9b9f451ec375ae823eaeb0769d1b8b9f095b9311a4dc509a441389064224a5e/noerror.gif
+  alt: no error
   title: at least, i hope my site has no error...
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/a2725a41cc68d215f20581bd36e6f55004bad66f7d88803186a62800fc1ed973/queerpride.gif
+  alt: queer pride!
   title: gay
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/71672fb368573bff7516431785b1be43dffac81ed93de260be66a070dd06effe/rainbow_bev.gif
+  alt: rainbow flag
   title: gay
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/4213f08b9639fde9885d9bab8c373eed07848090d4ac3602ec498b427096d7be/rainbow.gif
+  alt: a rainbow on blue background
   title: homosexual
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/78d49e1c2f6a8f4eff6266a73f0c9a11ac0ca8dd522ae088eb7b7ff7bf19818f/gaywomen.gif
+  alt: gay women
   title: gay
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/95cb63040658237d2ee77224e78429466d00fa4e871b03d3932cde89afc3177d/you-cant-just-88x31.png
@@ -71,16 +114,20 @@
   title: i can and i will
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/cf83bdbc82548bb7ae3345b52f97e01d3c47c13d73655e3e687fcf7a7e3115b3/right2repair.gif
+  alt: I support right to repair
   title: stop making your shit unfixable
   href: https://www.repair.org/
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/be3c902daa7219ef1bc8b70acf5fcb1d59068ff23f1ca6d02fdb76058551c58f/rss-button.gif
+  alt: rss
   href: /feed.xml
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/e331a0ffb154ef27e82b0a4491cb7b23e07c1db85fbb5de9ba949d79d2787b82/sucks.gif
+  alt: this website SUCKS
   title: it actually does tho
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/1aa4d2d66d0267b92c68b610ca7304a2578ae8a44e7615eaa573918245dda18f/this-website-is-gay.gif
+  alt: this website is GAY
   title: this, too, is yuri
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/e0bfadf6ab6686645e7ad042be741eb2434cf1e8a3321baf581e7915ab74f71d/transnow2.gif
@@ -91,17 +138,17 @@
   title: you should trans yourself. NOW!
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/6f3b4ce39b9d98746110c67a42287129d72d9ccbc170d61970f4bf98ad37e66a/under-construction.gif
+  alt: under construction!
+  href: http://textfiles.com/underconstruction/
   title: what site isn't?
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/d03f1eb3fc140df2417442a5cc04e24a68df77cf3f7907756f0943820ceafcac/valid-html5.gif
+  alt: W3C HTML 5 compliant
   title: at least, i hope it is...
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/d699b94dbc9188dc79070fae5ef9eb46993e25fdd39f4d342aa4013c2b10a683/valid-bad.gif
+  alt: W3C BAD HTML MARKUP
   title: more likely what it is
-
-- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/d60a9b327a20f1dd09a58ae9d459e75bacf257c5c68e0b7e09792aef225cde53/wikipedia2.gif
-  href: https://www.wikipedia.org/
-  alt: Wikipedia
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/5b22a3ee145e6168870173747cfb1e7ff880666c7358f46ebfd40d0d1281ab2e/paws.gif
   alt: made with MY OWN TWO PAWS
@@ -144,5 +191,6 @@
     site was
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/c01f4ad4d475a24c2d922c3602b0082b04ebe6e9040c035e6c191d437751d3d9/stop-windows.gif
+  alt: windows logo stop
   onclick: |
     new Audio("https://s3.us-west-000.backblazeb2.com/nyaabucket/1545426a09c148905973b1eb8e12d89f2fa27831c688dc7d4139ae23b1e37301/windows-95-error-sound-effect.mp3").play()
