@@ -1,7 +1,7 @@
 ---
 title: ping ff02::1
 tagline:
-  Link-local IPv6 addresses and where to find them and cool ways to use them
+  repairing misconfigured hosts using link-local IPv6 addresses and ad-hoc networking 
 tags:
   - networking
   - ipv6
@@ -11,7 +11,7 @@ slug:
   name: ping-ff02-1
 date:
   created: 2024-05-28 03:42:06-08:00
-  published: 2024-05-28 03:42:06-08:00
+  published: 2024-05-28 04:10:06-08:00
 ---
 
 **TL;DR:** Link local addresses are great and can be used for lots of things,
