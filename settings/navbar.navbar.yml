@@ -6,6 +6,10 @@
   id: projects
   display: Projects
 
+- href: /computers
+  id: computers
+  display: Computers
+
 - href: /about
   id: about
   display: "About"
