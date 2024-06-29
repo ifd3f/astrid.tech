@@ -57,6 +57,10 @@
   alt: visit the jukebox at loveshock.xyz
   href: https://loveshock.xyz/
 
+- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/696d91cb7b15ee1bb0b99620f4e0dac0c4be12493580de239524fb1890b1795b/zvava.org.png
+  alt: zvava.org
+  href: https://zvava.org
+
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/320bd476a68af56aff788e5669b1842e4e0405da41266dc75aaa49465ef37e07/linux-powered.gif
   alt: Linux powered
   title: I use NixOS btw
