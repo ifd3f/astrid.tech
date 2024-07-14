@@ -19,3 +19,5 @@ specs:
     - type: SATA SSD
       size: 500G
 ---
+
+*This page is a work in progress.*

@@ -20,4 +20,6 @@ specs:
       size: 1T
 ---
 
+*This page is a work in progress.*
+
 This is my gamer PC. 

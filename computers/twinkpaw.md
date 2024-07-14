@@ -18,3 +18,5 @@ specs:
     - type: NVMe SSD
       size: 1T
 ---
+
+*This page is a work in progress.*
