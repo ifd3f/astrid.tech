@@ -13,7 +13,7 @@ specs:
     - Windows XP SP3
   cpu: Pentium?
   ram:
-    size: 512G
+    size: 512M
     gen: ddr2?
   storage:
     - type: SATA HDD
