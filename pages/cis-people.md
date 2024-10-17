@@ -9,9 +9,13 @@ slug: /cis-people
 
 [^groups]:
     this also applies to neurodivergent, depressed, and of course, nearsighted
-    people, among others.
+    people, among others. these arguments have also been made by trans people
+    against other trans people, too.
 
-[archived here from original thread](https://woem.space/notice/AZ9LfzneXjXrwP0R28).
+archived here
+[from original thread](https://woem.space/notice/AZ9LfzneXjXrwP0R28), and
+expanded upon. literally none of these are hyperbolic at all, i have personally
+witnessed every single one of these points being argued for.
 
 - "you're nearsighted? oh wow, have you gotten the surgery yet?"
 - "idk, are you really nearsighted? you don't act nearsighted to me"
@@ -25,8 +29,6 @@ slug: /cis-people
 - "ugh... i can't believe anyone would mutilate their beautiful, natural,
   working eyes by burning them with lasers just because they 'feel' nearsighted.
   medicine and liberalism has gone too far"
-- "you're just wearing glasses because it's trendy to wear them! this has
-  consequences on your eyes!"
 - "can't you just like, not see things blurry? it's probably just that you're
   not focusing your eyes correctly"
 - "noooo don't put glasses on ur so handsome"
@@ -42,26 +44,23 @@ slug: /cis-people
 - "if you wish to see 20/20 unassisted then why don't you just wait until you
   die and reincarnate as a fully-sighted person?"
 - "i have blurry vision and i just deal with it lol"
+- "ugh, i can accept nearsighted and farsighted people, but 'astigmatism'?
+  you're just inventing new diagnoses to explain why you need your little
+  'accomodations'"
 
-## Provided by others
+## Contributed by others
 
-- "All your friends wear glasses too. Must be peer pressure."
-- "Autistic people are more likely to identify as nearsighted, so they must be
-  denied glasses."
-- "What if you regret lasering your eyes?"[^surgery-regret]
-- "By being nearsighted, you are limiting my personal freedom to not be
-  nearsighted!"
-- "Do I have to wear glasses now as well?"
-- "stop telling kids some eyes are different and need additional support above
-  the «[x] has eyes»"
-- "i dont need your bad eyes in my gene pool"
-- "if your eyes not perfect, do you even need them? way too much hassle to deal
-  with imperfection"
-- "yeah, my grandma had bad eyes and instead of complaining she always inviting
-  other grandmas to her bookclub to just read to each other aloud — and
-  sometimes they didnt even need books!"
-- "just squint! lots of people have blurry vision, and you don't see them
-  wearing glasses."
+- 0x10f at tech.lgbt: "All your friends wear glasses too. Must be peer pressure."
+- 0x10f at tech.lgbt: "Autistic people are more likely to identify as nearsighted, so they must be denied glasses."
+- sabik at rants.au: "What if you regret lasering your eyes?"[^surgery-regret]
+- fabi at blahaj.zone: "By being nearsighted, you are limiting my personal freedom to not be nearsighted!"
+- fabi at blahaj.zone: "Do I have to wear glasses now as well?"
+- aemstuz at pol.social: "you're just wearing glasses because it's trendy to wear them! this has consequences on your eyes!"
+- dym at dym.sh: "stop telling kids some eyes are different and need additional support above the «[x] has eyes»"
+- dym at dym.sh: "i dont need your bad eyes in my gene pool"
+- dym at dym.sh: "if your eyes not perfect, do you even need them? way too much hassle to deal with imperfection"
+- dym at dym.sh: "yeah, my grandma had bad eyes and instead of complaining she always inviting other grandmas to her bookclub to just read to each other aloud — and sometimes they didnt even need books!"
+- transbutterflyqueen at woem.men: "just squint! lots of people have blurry vision, and you don't see them wearing glasses."
 
 [^surgery-regret]:
     LASIK regret is 4.6% (N = 2198),[^cite-lasik] and trans surgery regret is 1%
