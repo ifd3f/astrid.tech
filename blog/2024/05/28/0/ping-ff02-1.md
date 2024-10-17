@@ -1,7 +1,8 @@
 ---
 title: ping ff02::1
 tagline:
-  repairing misconfigured hosts using link-local IPv6 addresses and ad-hoc networking 
+  repairing misconfigured hosts using link-local IPv6 addresses and ad-hoc
+  networking
 tags:
   - networking
   - ipv6

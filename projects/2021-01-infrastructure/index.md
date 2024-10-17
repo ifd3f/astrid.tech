@@ -353,6 +353,7 @@ janky entries to my /etc/hosts and "fix it later"
     screen completely cracked for no good reason whatsoever.
 
 [^fn-3]: :thinking: https://emoji.gg/assets/emoji/thonk.png
+
 [^fn-4]:
     Zerg rushing is essentially the "quantity-over-quality" tactic in strategy
     games: you send many expendable units against the enemy to hopefully
