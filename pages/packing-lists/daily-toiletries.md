@@ -24,28 +24,30 @@ function clearAllCheckboxes() {
 }
 </script>
 
-- Medical
-  - <input type="checkbox" class="runbook-checkbox"> ADHD meds
+- Quick access pocket
   - <input type="checkbox" class="runbook-checkbox"> Band-aid and antiseptic kit
-  - <input type="checkbox" class="runbook-checkbox"> Acetaminophen x5
-  - <input type="checkbox" class="runbook-checkbox"> Ibuprofen x5
-  - <input type="checkbox" class="runbook-checkbox"> (opt) Narcan
-- PPE
-  - <input type="checkbox" class="runbook-checkbox"> Earplugs
   - <input type="checkbox" class="runbook-checkbox"> Hairtie
-  - <input type="checkbox" class="runbook-checkbox"> N95 masks
-  - <input type="checkbox" class="runbook-checkbox"> Nitrile gloves
-  - <input type="checkbox" class="runbook-checkbox"> Condom[^condom]
-- Skin
-  - <input type="checkbox" class="runbook-checkbox"> Chapstick
   - <input type="checkbox" class="runbook-checkbox"> Hand lotion
-  - <input type="checkbox" class="runbook-checkbox"> Sunscreen
-- Hair
-  - <input type="checkbox" class="runbook-checkbox"> Comb
-  - <input type="checkbox" class="runbook-checkbox"> Mini hair brush
-- Other
-  - <input type="checkbox" class="runbook-checkbox"> Floss
-  - <input type="checkbox" class="runbook-checkbox"> Glasses lens wipes
   - <input type="checkbox" class="runbook-checkbox"> Napkins
+- Inner compartment
+  - Medical
+    - <input type="checkbox" class="runbook-checkbox"> ADHD meds
+    - <input type="checkbox" class="runbook-checkbox"> Acetaminophen x5
+    - <input type="checkbox" class="runbook-checkbox"> Ibuprofen x5
+    - <input type="checkbox" class="runbook-checkbox"> (opt) Narcan
+  - PPE
+    - <input type="checkbox" class="runbook-checkbox"> Earplugs
+    - <input type="checkbox" class="runbook-checkbox"> N95 masks
+    - <input type="checkbox" class="runbook-checkbox"> Nitrile gloves
+    - <input type="checkbox" class="runbook-checkbox"> Condom[^condom]
+  - Skin
+    - <input type="checkbox" class="runbook-checkbox"> Chapstick
+    - <input type="checkbox" class="runbook-checkbox"> Sunscreen
+  - Hair
+    - <input type="checkbox" class="runbook-checkbox"> Comb
+    - <input type="checkbox" class="runbook-checkbox"> Mini hair brush
+  - Other
+    - <input type="checkbox" class="runbook-checkbox"> Floss
+    - <input type="checkbox" class="runbook-checkbox"> Glasses lens wipes
 
 [^condom]: Look, it's highly unlikely, but it might come in handy one day!

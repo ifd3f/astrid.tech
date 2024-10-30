@@ -47,6 +47,8 @@ function clearAllCheckboxes() {
       Male
     - <input type="checkbox" class="runbook-checkbox"> USB-C Male to 3.5mm Aux
       Female
+    - <input type="checkbox" class="runbook-checkbox"> USB-C Male to Ethernet
+      (GbE)
   - Hubs
     - <input type="checkbox" class="runbook-checkbox"> USB-C hub
   - Chargers
