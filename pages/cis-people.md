@@ -50,17 +50,26 @@ witnessed every single one of these points being argued for.
 
 ## Contributed by others
 
-- 0x10f at tech.lgbt: "All your friends wear glasses too. Must be peer pressure."
-- 0x10f at tech.lgbt: "Autistic people are more likely to identify as nearsighted, so they must be denied glasses."
+- 0x10f at tech.lgbt: "All your friends wear glasses too. Must be peer
+  pressure."
+- 0x10f at tech.lgbt: "Autistic people are more likely to identify as
+  nearsighted, so they must be denied glasses."
 - sabik at rants.au: "What if you regret lasering your eyes?"[^surgery-regret]
-- fabi at blahaj.zone: "By being nearsighted, you are limiting my personal freedom to not be nearsighted!"
+- fabi at blahaj.zone: "By being nearsighted, you are limiting my personal
+  freedom to not be nearsighted!"
 - fabi at blahaj.zone: "Do I have to wear glasses now as well?"
-- aemstuz at pol.social: "you're just wearing glasses because it's trendy to wear them! this has consequences on your eyes!"
-- dym at dym.sh: "stop telling kids some eyes are different and need additional support above the «[x] has eyes»"
+- aemstuz at pol.social: "you're just wearing glasses because it's trendy to
+  wear them! this has consequences on your eyes!"
+- dym at dym.sh: "stop telling kids some eyes are different and need additional
+  support above the «[x] has eyes»"
 - dym at dym.sh: "i dont need your bad eyes in my gene pool"
-- dym at dym.sh: "if your eyes not perfect, do you even need them? way too much hassle to deal with imperfection"
-- dym at dym.sh: "yeah, my grandma had bad eyes and instead of complaining she always inviting other grandmas to her bookclub to just read to each other aloud — and sometimes they didnt even need books!"
-- transbutterflyqueen at woem.men: "just squint! lots of people have blurry vision, and you don't see them wearing glasses."
+- dym at dym.sh: "if your eyes not perfect, do you even need them? way too much
+  hassle to deal with imperfection"
+- dym at dym.sh: "yeah, my grandma had bad eyes and instead of complaining she
+  always inviting other grandmas to her bookclub to just read to each other
+  aloud — and sometimes they didnt even need books!"
+- transbutterflyqueen at woem.men: "just squint! lots of people have blurry
+  vision, and you don't see them wearing glasses."
 
 [^surgery-regret]:
     LASIK regret is 4.6% (N = 2198),[^cite-lasik] and trans surgery regret is 1%
