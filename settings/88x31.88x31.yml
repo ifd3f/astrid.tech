@@ -91,25 +91,39 @@
   href: https://www.haskell.org/
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/7e1a9c5bacc3c5b67739cce6cd88c85aeeecdbddb81dae8675d52bbc57a4308c/wustlang88x31.gif
-  alt: 88x31 ferris the crab pleading face looking at you, and text that says "wust lang"
+  alt:
+    88x31 ferris the crab pleading face looking at you, and text that says "wust
+    lang"
   title: wust lang ,,,,,,
   href: https://www.rust-lang.org/
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/04728a49eb9518fdbf24a3069301e1a16f7437d635cee378456b62f2e1352384/DONT_THREAD_ON_ME_176x62.gif
   #img: https://s3.us-west-000.backblazeb2.com/nyaabucket/cc24565b95ca37c61a74696ae215100df60c6202b899e59a1e4af3c1e78f3960/DONT_THREAD_ON_ME_176x62.gif
-  alt: python logo with text over that says DONT THREAD ON ME, vaguely reminiscent of gadsden flag
+  alt:
+    python logo with text over that says DONT THREAD ON ME, vaguely reminiscent
+    of gadsden flag
   title: global interpreter gridlock
   href: https://peps.python.org/pep-0703/
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/6ec2c7e7ebdf7a62b0295ac2b511a5440c273bb1a5e816b06227af0ceaf5c32c/java_script.gif
   # img: https://s3.us-west-000.backblazeb2.com/nyaabucket/dd11dd9297923798f3f74a4ed684a075d4efe93b71a0b88990cb98ab323e59aa/java_script.gif
-  alt: 'styled vaguely like a swing button. text says "JavaScript" and theres the java logo'
-  title: 'public static void main(String[] args) { console.log("Fuck you, world!"); }'
+  alt:
+    'styled vaguely like a swing button. text says "JavaScript" and theres the
+    java logo'
+  title:
+    'public static void main(String[] args) { console.log("Fuck you, world!"); }'
   href: https://go.dev/
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/898af89afb4de0c2b0a2462d6b74f1ffb7a1253c3418417fe21b87447fb79711/bash_command_prompt.gif
   alt: command prompt logo followed by text that says BASH
   href: https://minecraft.wiki/w/Commands
+
+- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/242d900ee031a2f4d6e3f7aee27235ef38ddc117746755283fc29988890b1be6/ansible-lisp-88x31.gif
+  alt:
+    the lisp yin-yang lambda logo, but the lambdas are replaced with the ansible
+    icon, next to the text that says "ANSIBLE"
+  title: based on my Very Well Received Essay
+  href: https://astrid.tech/2024/05/01/0/ansible-is-a-lisp/
 
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/4d4c3a7e7063215d3ff5d82998b093d36c42c4d7281e53bb5fee7e5cf58f7e35/madewithvi.gif
   alt: made with vi
