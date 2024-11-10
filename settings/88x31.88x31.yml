@@ -90,6 +90,11 @@
   title: it's a language!
   href: https://www.haskell.org/
 
+- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/7e1a9c5bacc3c5b67739cce6cd88c85aeeecdbddb81dae8675d52bbc57a4308c/wustlang88x31.gif
+  alt: 88x31 ferris the crab pleading face looking at you, and text that says "wust lang"
+  title: wust lang ,,,,,,
+  href: https://www.rust-lang.org/
+
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/4d4c3a7e7063215d3ff5d82998b093d36c42c4d7281e53bb5fee7e5cf58f7e35/madewithvi.gif
   alt: made with vi
   title: actually neovim but like,
