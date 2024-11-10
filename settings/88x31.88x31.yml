@@ -101,6 +101,12 @@
   title: global interpreter gridlock
   href: https://peps.python.org/pep-0703/
 
+- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/6ec2c7e7ebdf7a62b0295ac2b511a5440c273bb1a5e816b06227af0ceaf5c32c/java_script.gif
+  # img: https://s3.us-west-000.backblazeb2.com/nyaabucket/dd11dd9297923798f3f74a4ed684a075d4efe93b71a0b88990cb98ab323e59aa/java_script.gif
+  alt: 'styled vaguely like a swing button. text says "JavaScript" and theres the java logo'
+  title: 'public static void main(String[] args) { console.log("Fuck you, world!"); }'
+  href: https://go.dev/
+
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/4d4c3a7e7063215d3ff5d82998b093d36c42c4d7281e53bb5fee7e5cf58f7e35/madewithvi.gif
   alt: made with vi
   title: actually neovim but like,
