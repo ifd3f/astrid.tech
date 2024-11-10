@@ -32,6 +32,11 @@
   alt: LaTeX
   title: LaTeX is cool
 
+- img: https://s3.us-west-000.backblazeb2.com/nyaabucket/c2b8642792243c7a26e38ac75786fe5649f207c520886956d7f3e8d0f5fc95a0/alex.gif
+  alt: alex
+  title: alex is cute 🥺
+  href: https://nim.cx
+
 - img: https://s3.us-west-000.backblazeb2.com/nyaabucket/dfd9ff93565bf88f42187af7eb02e4dafc391afa6bdce67ba9d3d675e2506245/lisp_alien_drew.gif
   alt:
     green alien associated with lisp having five eyes waves a triangular flag
