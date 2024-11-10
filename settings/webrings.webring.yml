@@ -1,4 +1,26 @@
 - pending: False
+  prev: "https://webring.umbreon.online/prev?from=https://astrid.tech"
+  next: "https://webring.umbreon.online/next?from=https://astrid.tech"
+  html: >
+    <a href="https://webring.umbreon.online/">
+      <div>
+        <div class="silly-little-images">
+          <img
+            src="https://s3.us-west-000.backblazeb2.com/nyaabucket/5444b66f2d9fc260b2bbf702c60183298fe390fc094e3f2821942148d526c487/umbreon.png"
+            width="24"
+            height="29"
+            alt="an umbreon getting ready to pounce">
+          <img
+            src="https://s3.us-west-000.backblazeb2.com/nyaabucket/8cf2332c083c5a3c165835a420fd7212458954d78c397feb22515ab3d0e046aa/kate.png"
+            width="27"
+            height="43"
+            alt="the female protagonist of Pokemon Ranger: Shadows of Almia doing her ranger pose">
+        </div>
+        <div>webring.umbreon.online</div>
+      </div>
+    </a>
+
+- pending: False
   prev: "https://webring.xxiivv.com/#astralbijection"
   next: "https://webring.xxiivv.com/#astralbijection"
   html: >
