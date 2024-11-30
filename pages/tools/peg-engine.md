@@ -117,6 +117,9 @@ navbar_path: []
             <!--option value="wall-control">
                   1" pegboard with ¼" holes and 1" slots (Wall Control style)
                 </option-->
+            <option value="optical-table">
+              Metric optical table (M6, bring your own threading)
+            </option>
             <option value="molle-half">MOLLE (half holes)</option>
             <option value="molle-full">MOLLE (full holes)</option>
           </select>
@@ -168,6 +171,7 @@ navbar_path: []
         stroke-width="1px"
       />
     </g>`;
+  const SVG_OPTICAL_TABLE_UNTHREADED = `<circle cx="12.5" cy="12.5" r="5.5" stroke="red" stroke-width="1px" />`;
   const SVG_MOLLE_HALF = `
     <rect
       x="2.5"
@@ -201,6 +205,11 @@ navbar_path: []
         [SVG_SKADIS_HOLE, ""],
         ["", SVG_SKADIS_HOLE],
       ],
+    },
+    "optical-table": {
+      w: 25,
+      h: 25,
+      tess: [[SVG_OPTICAL_TABLE_UNTHREADED]],
     },
     "molle-half": {
       w: 38,
