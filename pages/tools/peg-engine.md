@@ -6,7 +6,10 @@ navbar_path: []
 ---
 <div>
   <h1>Pegging Engine</h1>
-  <p>A simple tool for generating laser-cuttable pegboards and other mounting panels.</p>
+  <p>
+    A simple tool for generating laser-cuttable pegboards and other mounting
+    panels.
+  </p>
   <noscript>
     Sorry, but your browser appears to not support JavaScript. Please upgrade to
     Internet Explorer 3.0 or Netscape Navigator 2.0 to use this applet.
@@ -152,8 +155,7 @@ navbar_path: []
   </div>
 </div>
 <script>
-  const SVG_STD_PEGBOARD = 
-    `<circle cx="12.7" cy="12.7" r="3.175" stroke="red" stroke-width="1px" />`;
+  const SVG_STD_PEGBOARD = `<circle cx="12.7" cy="12.7" r="3.175" stroke="red" stroke-width="1px" />`;
   const SVG_SKADIS_HOLE = `
     <g transform="translate(10 0)">
       <path
@@ -176,7 +178,7 @@ navbar_path: []
       stroke="red"
       stroke-width="1px"
     />`;
-  const SVG_MOLLE_FULL =`
+  const SVG_MOLLE_FULL = `
     <rect
       x="2.5"
       y="2.5"
@@ -196,14 +198,8 @@ navbar_path: []
       w: 20,
       h: 20,
       tess: [
-        [
-          SVG_SKADIS_HOLE,
-          '',
-        ],
-        [
-          '',
-          SVG_SKADIS_HOLE,
-        ],
+        [SVG_SKADIS_HOLE, ""],
+        ["", SVG_SKADIS_HOLE],
       ],
     },
     "molle-half": {
@@ -271,13 +267,13 @@ navbar_path: []
       this.summary = summary;
       this.debouncer = new Debouncer({ minPeriodMs: 200 });
       const inputs = form.querySelectorAll(
-        ".sheet-params input, .sheet-params input, .grid-params input, .grid-params select"
+        ".sheet-params input, .sheet-params input, .grid-params input, .grid-params select",
       );
       console.debug("hooking input event on form inputs", inputs);
       inputs.forEach((e) =>
         e.addEventListener("input", () => {
           this.updateSVG();
-        })
+        }),
       );
       console.debug("hooking change event for unit selector", inputs);
       const units = form.querySelector(".generator-units");
@@ -288,7 +284,7 @@ navbar_path: []
           "performing units change from",
           prevUnitScale,
           "to",
-          newUnitScale
+          newUnitScale,
         );
         this.updateUnits(prevUnitScale / newUnitScale);
         prevUnitScale = newUnitScale;
@@ -305,7 +301,7 @@ navbar_path: []
       this.debouncer.execute(() => this._updateSVG());
     }
     _updateSVG() {
-      console.log("_updateSVG")
+      console.log("_updateSVG");
       const formData = new FormData(this.form);
       const holes = this.svg.querySelector(".holes");
       const rect = this.svg.querySelector(".sheet");
@@ -348,9 +344,9 @@ navbar_path: []
           const xrepeat = ptn.tess[0].length;
           const yrepeat = ptn.tess.length;
           const tesspattern = ptn.tess[j % yrepeat][i % xrepeat];
-          strs.push(`<g transform="translate(${x} ${y})">`)
+          strs.push(`<g transform="translate(${x} ${y})">`);
           strs.push(tesspattern);
-          strs.push('</g>')
+          strs.push("</g>");
         }
       }
       holes.innerHTML = strs.join();
