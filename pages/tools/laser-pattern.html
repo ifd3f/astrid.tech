@@ -126,12 +126,12 @@
     <input type="hidden" name="debug-mode" id="debug-mode" value="1" />
   </form>
 
+  <h2>Output</h2>
+  <p id="generator-summary"></p>
+  <div>
+    <button onclick="doSVGDownload()">Download SVG</button>
+  </div>
   <div id="generator-output" style="margin: 20px">
-    <h2>Output</h2>
-    <p id="summary"></p>
-    <div>
-      <button onclick="doSVGDownload()">Download SVG</button>
-    </div>
     <div
       style="
         margin-left: auto;
@@ -277,9 +277,10 @@
 
   /** Holder for everything */
   class LaserPatternGenerator {
-    constructor({ form, svg }) {
+    constructor({ form, svg, summary }) {
       this.form = form;
       this.svg = svg;
+      this.summary = summary;
       this.debouncer = new Debouncer({ minPeriodMs: 200 });
 
       const inputs = form.querySelectorAll(
@@ -379,6 +380,8 @@
       }
 
       holes.innerHTML = strs.join();
+
+      this.summary.innerText = `Grid is ${xGrid.count} × ${yGrid.count} (${xGrid.count * yGrid.count} holes)`;
     }
   }
 
@@ -410,6 +413,7 @@
   const laserPatternGenerator = new LaserPatternGenerator({
     form: document.querySelector("#generator-input"),
     svg: document.querySelector("#generator-output svg"),
+    summary: document.querySelector("#generator-summary"),
   });
   laserPatternGenerator.updateSVG();
 

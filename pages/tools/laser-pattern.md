@@ -122,12 +122,12 @@ navbar_path: []
     </div>
     <input type="hidden" name="debug-mode" id="debug-mode" value="1" />
   </form>
+  <h2>Output</h2>
+  <p id="generator-summary"></p>
+  <div>
+    <button onclick="doSVGDownload()">Download SVG</button>
+  </div>
   <div id="generator-output" style="margin: 20px">
-    <h2>Output</h2>
-    <p id="summary"></p>
-    <div>
-      <button onclick="doSVGDownload()">Download SVG</button>
-    </div>
     <div
       style="
         margin-left: auto;
@@ -265,9 +265,10 @@ navbar_path: []
   }
   /** Holder for everything */
   class LaserPatternGenerator {
-    constructor({ form, svg }) {
+    constructor({ form, svg, summary }) {
       this.form = form;
       this.svg = svg;
+      this.summary = summary;
       this.debouncer = new Debouncer({ minPeriodMs: 200 });
       const inputs = form.querySelectorAll(
         ".sheet-params input, .sheet-params input, .grid-params input, .grid-params select"
@@ -353,6 +354,7 @@ navbar_path: []
         }
       }
       holes.innerHTML = strs.join();
+      this.summary.innerText = `Grid is ${xGrid.count} × ${yGrid.count} (${xGrid.count * yGrid.count} holes)`;
     }
   }
   function packAxis(lenLimit, lenCell, parity, padding) {
@@ -382,6 +384,7 @@ navbar_path: []
   const laserPatternGenerator = new LaserPatternGenerator({
     form: document.querySelector("#generator-input"),
     svg: document.querySelector("#generator-output svg"),
+    summary: document.querySelector("#generator-summary"),
   });
   laserPatternGenerator.updateSVG();
   function doSVGDownload() {
