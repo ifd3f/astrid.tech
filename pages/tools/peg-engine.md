@@ -112,16 +112,20 @@ navbar_path: []
         <label>
           Grid pattern
           <select name="grid-pattern">
-            <option value="std-pegboard">1" pegboard with ¼" holes</option>
-            <option value="skadis">IKEA SKÅDIS Pegboard</option>
+            <option value="std-pegboard">
+              Standard pegboard (1" pitch, ¼" holes)
+            </option>
+            <option value="skadis">IKEA SKÅDIS pegboard</option>
             <!--option value="wall-control">
                   1" pegboard with ¼" holes and 1" slots (Wall Control style)
                 </option-->
             <option value="optical-table">
-              Metric optical table (M6, bring your own threading)
+              Metric optical breadboard (M6 pilot holes, 25mm pitch)
             </option>
-            <option value="molle-half">MOLLE (half holes)</option>
-            <option value="molle-full">MOLLE (full holes)</option>
+            <option value="molle-half">Rigid MOLLE panel (half holes)</option>
+            <option value="molle-full">
+              Rigid MOLLE panel (full holes, 3mm bars)
+            </option>
           </select>
         </label>
       </div>
@@ -156,6 +160,26 @@ navbar_path: []
       </svg>
     </div>
   </div>
+  <h2>Materials advice</h2>
+  <ul>
+    <li>Standard pegboards are usually 3/16-1/4" thick hardboard.</li>
+    <li>IKEA sells SKÅDIS as ~3/16" thick fiberboard with acrylic paint.</li>
+    <li>
+      Optical breadboards are meant to be dimensionally accurate and rigid.
+      Thus, they are typically tapped from 0.5-0.75" thick aluminum or steel
+      slabs. However, some breadboards appear to be sold in acrylic, a much
+      laser-cutter-friendlier material. Since 1/2" may cause some laser systems
+      to slope a lot, you may want to consider cutting multiple sheets,
+      laminating or screwing them together, and then threading the holes through
+      the stacked sheet.
+    </li>
+    <li>
+      Commercially-sold rigid MOLLE panels are often cut from 3/16" polyethylene
+      aluminum, or plywood sheets, and then marked up a whole bunch because
+      they're Tactical™. If you are choosing alternative materials, you should
+      generally prefer less-brittle, more flexible materials.
+    </li>
+  </ul>
 </div>
 <script>
   const SVG_STD_PEGBOARD = `<circle cx="12.7" cy="12.7" r="3.175" stroke="red" stroke-width="1px" />`;
@@ -359,7 +383,7 @@ navbar_path: []
         }
       }
       holes.innerHTML = strs.join();
-      this.summary.innerText = `Grid is ${xGrid.count} × ${yGrid.count} (${xGrid.count * yGrid.count} holes)`;
+      this.summary.innerText = `Grid is ${xGrid.count} × ${yGrid.count} (${xGrid.count * yGrid.count} cells)`;
     }
   }
   function packAxis(lenLimit, lenCell, parity, padding) {
