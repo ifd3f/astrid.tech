@@ -154,20 +154,8 @@ navbar_path: []
 <script>
   const SVG_STD_PEGBOARD = 
     `<circle cx="12.7" cy="12.7" r="3.175" stroke="red" stroke-width="1px" />`;
-  const SVG_SKADIS_1 = `
+  const SVG_SKADIS_HOLE = `
     <g transform="translate(10 0)">
-      <path
-        d="M 2.5 5
-           v 10
-           a 2.5 2.5 0 0 1 -5 0
-           v -10
-           a 2.5 2.5 0 0 1 5 0"
-        stroke="red"
-        stroke-width="1px"
-      />
-    </g>`;
-  const SVG_SKADIS_2 = `
-    <g transform=" translate(10 20)">
       <path
         d="M 2.5 5
            v 10
@@ -206,11 +194,15 @@ navbar_path: []
     },
     skadis: {
       w: 20,
-      h: 40,
+      h: 20,
       tess: [
         [
-          SVG_SKADIS_1,
-          SVG_SKADIS_2,
+          SVG_SKADIS_HOLE,
+          '',
+        ],
+        [
+          '',
+          SVG_SKADIS_HOLE,
         ],
       ],
     },
