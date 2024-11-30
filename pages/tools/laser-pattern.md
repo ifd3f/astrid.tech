@@ -114,8 +114,8 @@ navbar_path: []
             <!--option value="wall-control">
                   1" pegboard with ¼" holes and 1" slots (Wall Control style)
                 </option-->
-            <option value="molle-half">MOLLE (60% holes)</option>
-            <option value="molle-full">MOLLE (90% dual holes)</option>
+            <option value="molle-half">MOLLE (half holes)</option>
+            <option value="molle-full">MOLLE (full holes)</option>
           </select>
         </label>
       </div>
@@ -151,16 +151,10 @@ navbar_path: []
     </div>
   </div>
 </div>
-<div hidden>
-  <svg
-    id="template-std-pegboard"
-    width="2.54cm"
-    height="2.54cm"
-    viewBox="0 0 25.4 25.4"
-  >
-    <circle cx="12.7" cy="12.7" r="3.175" stroke="red" stroke-width="1px" />
-  </svg>
-  <svg id="template-skadis-1" width="2cm" height="4cm" viewBox="0 0 20 40">
+<script>
+  const SVG_STD_PEGBOARD = 
+    `<circle cx="12.7" cy="12.7" r="3.175" stroke="red" stroke-width="1px" />`;
+  const SVG_SKADIS_1 = `
     <g transform="translate(10 0)">
       <path
         d="M 2.5 5
@@ -171,9 +165,8 @@ navbar_path: []
         stroke="red"
         stroke-width="1px"
       />
-    </g>
-  </svg>
-  <svg id="template-skadis-2" width="2cm" height="4cm" viewBox="0 0 20 40">
+    </g>`;
+  const SVG_SKADIS_2 = `
     <g transform=" translate(10 20)">
       <path
         d="M 2.5 5
@@ -184,9 +177,8 @@ navbar_path: []
         stroke="red"
         stroke-width="1px"
       />
-    </g>
-  </svg>
-  <svg id="template-molle-half" width="3.8cm" height="5cm" viewBox="0 0 38 50">
+    </g>`;
+  const SVG_MOLLE_HALF = `
     <rect
       x="2.5"
       y="2.5"
@@ -195,14 +187,8 @@ navbar_path: []
       rx="5"
       stroke="red"
       stroke-width="1px"
-    />
-  </svg>
-  <svg
-    id="template-molle-full"
-    width="3.8cm"
-    height="2.5cm"
-    viewBox="0 0 38 25"
-  >
+    />`;
+  const SVG_MOLLE_FULL =`
     <rect
       x="2.5"
       y="2.5"
@@ -211,35 +197,32 @@ navbar_path: []
       rx="5"
       stroke="red"
       stroke-width="1px"
-    />
-  </svg>
-</div>
-<script>
+    />`;
   const PATTERNS = {
     "std-pegboard": {
       w: 25.4,
       h: 25.4,
-      tess: [[document.getElementById("template-std-pegboard")]],
+      tess: [[SVG_STD_PEGBOARD]],
     },
     skadis: {
       w: 20,
       h: 40,
       tess: [
         [
-          document.getElementById("template-skadis-1"),
-          document.getElementById("template-skadis-2"),
+          SVG_SKADIS_1,
+          SVG_SKADIS_2,
         ],
       ],
     },
     "molle-half": {
       w: 38,
       h: 50,
-      tess: [[document.getElementById("template-molle-half")]],
+      tess: [[SVG_MOLLE_HALF]],
     },
     "molle-full": {
       w: 38,
       h: 25,
-      tess: [[document.getElementById("template-molle-full")]],
+      tess: [[SVG_MOLLE_FULL]],
     },
   };
   class Debouncer {
@@ -363,6 +346,7 @@ navbar_path: []
       const xGrid = packAxis(params.w, ptn.w, params.xpar, params.xpad);
       const yGrid = packAxis(params.h, ptn.h, params.ypar, params.ypad);
       console.debug("Calculated grid axes", xGrid, yGrid);
+      const strs = [];
       // put in the new holes
       for (let i = 0; i < xGrid.count; i++) {
         for (let j = 0; j < yGrid.count; j++) {
@@ -371,17 +355,12 @@ navbar_path: []
           const xrepeat = ptn.tess[0].length;
           const yrepeat = ptn.tess.length;
           const tesspattern = ptn.tess[j % yrepeat][i % xrepeat];
-          const group = document.createElementNS(
-            "http://www.w3.org/2000/svg",
-            "g"
-          );
-          group.setAttribute("transform", `translate(${x} ${y})`);
-          holes.appendChild(group);
-          tesspattern.childNodes.forEach((child) => {
-            group.appendChild(child.cloneNode(true));
-          });
+          strs.push(`<g transform="translate(${x} ${y})">`)
+          strs.push(tesspattern);
+          strs.push('</g>')
         }
       }
+      holes.innerHTML = strs.join();
     }
   }
   function packAxis(lenLimit, lenCell, parity, padding) {
