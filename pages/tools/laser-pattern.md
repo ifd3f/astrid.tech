@@ -242,11 +242,58 @@ navbar_path: []
       tess: [[document.getElementById("template-molle-full")]],
     },
   };
+  class Debouncer {
+    constructor({ minPeriodMs }) {
+      this.state = {
+        tag: "ready",
+      };
+      this.minPeriodMs = minPeriodMs;
+    }
+    execute(action) {
+      const now = Date.now();
+      console.debug("execute", this.state);
+      switch (this.state.tag) {
+        case "ready":
+          this.state = {
+            tag: "cooldown",
+            nextReady: now + this.minPeriodMs,
+            queuedAction: null,
+          };
+          setTimeout(() => {
+            this.advance();
+          }, this.minPeriodMs);
+          action();
+          break;
+        case "cooldown":
+          this.state.queuedAction = action;
+          this.advance();
+          break;
+      }
+    }
+    advance() {
+      console.debug("advance", this.state);
+      const now = new Date();
+      switch (this.state.tag) {
+        case "cooldown":
+          if (now >= this.state.nextReady) {
+            const queuedAction = this.state.queuedAction;
+            this.state = { tag: "ready" };
+            if (queuedAction) {
+              queuedAction();
+            }
+          }
+          break;
+        default:
+          break;
+      }
+    }
+  }
   /** Holder for everything */
   class LaserPatternGenerator {
     constructor({ form, svg }) {
       this.form = form;
       this.svg = svg;
+      this.debouncer = new Debouncer({ minPeriodMs: 200 });
       const inputs = form.querySelectorAll(
         ".sheet-params input, .sheet-params input, .grid-params input, .grid-params select"
       );
@@ -274,11 +321,15 @@ navbar_path: []
     updateUnits(multiplier) {
       this.form.querySelectorAll(".shared-units").forEach((e) => {
         const rawVal = Number(e.value) * multiplier;
-        const roundTo = 1000;
+        const roundTo = 100000;
         e.value = Math.round((rawVal + Number.EPSILON) * roundTo) / roundTo;
       });
     }
     updateSVG() {
+      this.debouncer.execute(() => this._updateSVG());
+    }
+    _updateSVG() {
+      console.log("_updateSVG")
       const formData = new FormData(this.form);
       const holes = this.svg.querySelector(".holes");
       const rect = this.svg.querySelector(".sheet");
