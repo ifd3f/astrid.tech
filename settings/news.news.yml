@@ -29,3 +29,9 @@
   content: >
     I have created and added several new 88x31s. Please feel free to take them
     as you please.
+
+- time: 2024-11-30 06:15:12 -0800
+  content: >
+    I have created Pegging Engine, a tool for generating arbitrarily-sized
+    laser-cuttable pegboards. Try it out!
+    <https://astrid.tech/tools/peg-engine/>
