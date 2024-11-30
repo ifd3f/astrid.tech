@@ -6,17 +6,18 @@ set -euxo pipefail
 # TODO: i need to make html pages a thing already 
 
 dir="$(dirname "$0")"
+slug=peg-engine
 
 cd "$dir"
 
-cat <<EOF > laser-pattern.md
+cat <<EOF > $slug.md
 ---
-title: Laser pattern generator
+title: Pegging engine
 tags: []
-slug: /tools/laser-pattern
+slug: /tools/$slug
 navbar_path: []
 ---
 EOF
 
-sed '/^[[:space:]]*$/d' < laser-pattern.html >> laser-pattern.md
+sed '/^[[:space:]]*$/d' < $slug.html >> $slug.md
 

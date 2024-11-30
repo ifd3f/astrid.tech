@@ -1,12 +1,12 @@
 ---
-title: Laser pattern generator
+title: Pegging engine
 tags: []
-slug: /tools/laser-pattern
+slug: /tools/peg-engine
 navbar_path: []
 ---
 <div>
-  <h1>Laser cutter grid generator</h1>
-  <p>A simple tool for generating grids for laser cutting..</p>
+  <h1>Pegging Engine</h1>
+  <p>A simple tool for generating laser-cuttable pegboards and other mounting panels.</p>
   <noscript>
     Sorry, but your browser appears to not support JavaScript. Please upgrade to
     Internet Explorer 3.0 or Netscape Navigator 2.0 to use this applet.
