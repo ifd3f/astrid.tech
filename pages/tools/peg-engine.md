@@ -4,6 +4,7 @@ tags: []
 slug: /tools/peg-engine
 navbar_path: []
 ---
+
 <div>
   <h1>Pegging Engine</h1>
   <p>
@@ -182,40 +183,20 @@ navbar_path: []
   </ul>
 </div>
 <script>
-  const SVG_STD_PEGBOARD = `<circle cx="12.7" cy="12.7" r="3.175" stroke="red" stroke-width="1px" />`;
-  const SVG_SKADIS_HOLE = `
-    <g transform="translate(10 0)">
-      <path
-        d="M 2.5 5
-           v 10
-           a 2.5 2.5 0 0 1 -5 0
-           v -10
-           a 2.5 2.5 0 0 1 5 0"
-        stroke="red"
-        stroke-width="1px"
-      />
-    </g>`;
-  const SVG_OPTICAL_TABLE_UNTHREADED = `<circle cx="12.5" cy="12.5" r="5.5" stroke="red" stroke-width="1px" />`;
-  const SVG_MOLLE_HALF = `
-    <rect
-      x="2.5"
-      y="2.5"
-      width="35"
-      height="30"
-      rx="5"
-      stroke="red"
-      stroke-width="1px"
-    />`;
-  const SVG_MOLLE_FULL = `
-    <rect
-      x="2.5"
-      y="2.5"
-      width="35"
-      height="22"
-      rx="5"
-      stroke="red"
-      stroke-width="1px"
-    />`;
+  const SVG_STD_PEGBOARD = `<circle cx="12.7" cy="12.7" r="3.175" stroke="red" stroke-width="1px"/>`;
+  const SVG_SKADIS_HOLE =
+    `<g transform="translate(10 0)">` +
+    (`<path stroke="red" stroke-width="1px"` +
+      (`d="M 2.5 5 ` +
+        `v 10 ` +
+        `a 2.5 2.5 0 0 1 -5 0 ` +
+        `v -10 ` +
+        `a 2.5 2.5 0 0 1 5 0"`) +
+      `/>`) +
+    `</g>`;
+  const SVG_OPTICAL_TABLE_UNTHREADED = `<circle cx="12.5" cy="12.5" r="5.5" stroke="red" stroke-width="1px"/>`;
+  const SVG_MOLLE_HALF = `<rect x="2.5" y="2.5" width="35" height="30" rx="5" stroke="red" stroke-width="1px"/>`;
+  const SVG_MOLLE_FULL = `<rect x="2.5" y="2.5" width="35" height="22" rx="5" stroke="red" stroke-width="1px" />`;
   const PATTERNS = {
     "std-pegboard": {
       w: 25.4,
