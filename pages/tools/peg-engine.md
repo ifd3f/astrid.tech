@@ -127,6 +127,7 @@ navbar_path: []
             <option value="molle-full">
               Rigid MOLLE panel (full holes, 3mm bars)
             </option>
+            <option value="icc-smc">ICC Structured Media Center</option>
           </select>
         </label>
       </div>
@@ -197,6 +198,46 @@ navbar_path: []
   const SVG_OPTICAL_TABLE_UNTHREADED = `<circle cx="12.5" cy="12.5" r="5.5" stroke="red" stroke-width="1px"/>`;
   const SVG_MOLLE_HALF = `<rect x="2.5" y="2.5" width="35" height="30" rx="5" stroke="red" stroke-width="1px"/>`;
   const SVG_MOLLE_FULL = `<rect x="2.5" y="2.5" width="35" height="22" rx="5" stroke="red" stroke-width="1px" />`;
+  const ICC_SMC = (function generateICCSMC() {
+    // these are in inches
+    const SQUARE_SIZE = 6;
+    const N_HOLES_ON_SIDE = 13;
+    const HOLE_PITCH = SQUARE_SIZE / (N_HOLES_ON_SIDE - 1);
+    const MARGIN = 0.625 / 2;
+    const HOLE_RAD_MM = 0.125 * 25.4; // assumed quantity
+    const TESS_SIZE_MM = 25.4 * (2 * MARGIN + SQUARE_SIZE);
+    const hHoleXs = Array(N_HOLES_ON_SIDE)
+      .fill(null)
+      .map((_, i) => i * HOLE_PITCH);
+    const vHoleYs = Array(N_HOLES_ON_SIDE - 2)
+      .fill(null)
+      .map((_, i) => (i + 1) * HOLE_PITCH);
+    function round(x) {
+      return Math.round(x * 1000) / 1000;
+    }
+    const holeTransformsInches = [
+      hHoleXs.map((x) => [MARGIN + x, MARGIN]), // top
+      hHoleXs.map((x) => [MARGIN + x, MARGIN + SQUARE_SIZE]), // bottom
+      vHoleYs.map((y) => [MARGIN, MARGIN + y]), // left
+      vHoleYs.map((y) => [MARGIN + SQUARE_SIZE, MARGIN + y]), // right
+    ].flat(1);
+    const holeTransforms = holeTransformsInches.map(([x, y]) => [
+      round(x * 25.4),
+      round(y * 25.4),
+    ]);
+    const holes = holeTransforms
+      .map(
+        ([x, y]) =>
+          `<circle cx="${x}" cy="${y}" r="${HOLE_RAD_MM}" stroke="red" stroke-width="1px"/>`,
+      )
+      .join("");
+    console.log(holes);
+    return {
+      w: TESS_SIZE_MM,
+      h: TESS_SIZE_MM,
+      tess: [[holes]],
+    };
+  })();
   const PATTERNS = {
     "std-pegboard": {
       w: 25.4,
@@ -226,6 +267,7 @@ navbar_path: []
       h: 25,
       tess: [[SVG_MOLLE_FULL]],
     },
+    "icc-smc": ICC_SMC,
   };
   class Debouncer {
     constructor({ minPeriodMs }) {
