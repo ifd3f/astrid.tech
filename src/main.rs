@@ -15,6 +15,7 @@ use axum::{
 };
 use clap::Parser as _;
 use sec::Secret;
+use tracing::info;
 
 #[derive(clap::Parser)]
 pub struct Args {
@@ -30,6 +31,15 @@ pub struct Args {
 #[tokio::main]
 async fn main() {
     let args = Args::parse();
+    tracing::subscriber::set_global_default(
+        tracing_subscriber::fmt()
+            .with_env_filter(
+                tracing_subscriber::EnvFilter::builder()
+                    .with_default_directive(tracing::Level::INFO.into())
+                    .from_env_lossy(),
+            )
+            .finish(),
+    ).unwrap();
 
     let state = ArmQRState {
         settings: Persisted::open("redirect_config.toml".into()).await,
@@ -45,6 +55,8 @@ async fn main() {
     let listener = tokio::net::TcpListener::bind(("::", args.port))
         .await
         .unwrap();
+    info!("Listening on {:?}", listener.local_addr().unwrap());
+
     axum::serve(listener, app).await.unwrap();
 }
 

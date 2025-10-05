@@ -7,12 +7,12 @@ use axum::routing::{get, post};
 use axum::{Form, Router};
 use axum_auth::AuthBasic;
 use http::StatusCode;
-use http::uri::PathAndQuery;
-use query_string_builder::{QueryString, QueryStringSimple};
+use query_string_builder::QueryString;
 use serde::Deserialize;
 use std::collections::HashMap;
 use std::error::Error;
 use std::str::FromStr;
+use tracing::info;
 use uuid::Uuid;
 
 #[derive(Template)]
@@ -118,13 +118,13 @@ async fn create_profile_form(
     let id = Uuid::new_v4();
 
     let mut config = settings.snapshot().await.as_ref().clone();
-    config.profiles.insert(
-        id,
-        Profile {
-            name,
-            action: Action::Redirect(form.redirect_uri.to_string()),
-        },
-    );
+    let profile = Profile {
+        name,
+        action: Action::Redirect(form.redirect_uri.to_string()),
+    };
+
+    info!("Creating profile {profile:?}");
+    config.profiles.insert(id, profile);
 
     settings.store(config).await;
 
@@ -171,6 +171,7 @@ async fn activate_profile_form(
         return Redirect::to("/admin?error=bad_uuid");
     }
 
+    info!("Activating profile {uuid}");
     config.current_profile_id = uuid;
 
     settings.store(config).await;
@@ -196,6 +197,7 @@ async fn delete_profile_form(
 
     let mut config = settings.snapshot_cloned().await;
 
+    info!("Deleting profile {uuid}");
     config.profiles.remove(&uuid);
 
     settings.store(config).await;
