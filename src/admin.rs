@@ -1,122 +1,114 @@
-use base64::{engine::general_purpose, Engine as _};
-use rocket::{form::Form, response::content::RawHtml, Phase, Rocket, State};
+use crate::config::{Action, DynamicSettings, Persisted, Profile};
+use crate::{AdminPasswordValidator, ArmQRState};
+use askama::Template;
+use axum::extract::{FromRef, FromRequestParts, Query, State};
+use axum::response::{Html, Redirect};
+use axum::routing::{get, post};
+use axum::{Form, Router};
+use axum_auth::AuthBasic;
+use http::StatusCode;
+use http::uri::PathAndQuery;
+use query_string_builder::{QueryString, QueryStringSimple};
+use serde::Deserialize;
+use std::collections::HashMap;
+use std::error::Error;
 use std::str::FromStr;
 use uuid::Uuid;
-
-use crate::{
-    config::{Action, Profile},
-    Responder,
-};
-use rocket::{
-    form::FromForm,
-    http::Status,
-    request::{FromRequest, Outcome},
-    response::{self, Redirect},
-    Request, Response,
-};
-
-use askama::Template;
-
-use crate::{config::Config, ArmQRState};
 
 #[derive(Template)]
 #[template(path = "admin.html")]
 pub struct AdminPage<'a> {
-    pub config: &'a Config,
+    pub config: &'a DynamicSettings,
     pub error: Option<&'a str>,
 }
 
 #[derive(Debug)]
-pub struct RequiresBasicAuthentication;
-
-impl<'r> Responder<'r, 'static> for RequiresBasicAuthentication {
-    fn respond_to(self, _: &'r Request<'_>) -> response::Result<'static> {
-        Ok(Response::build()
-            .status(Status::new(401))
-            .raw_header("WWW-Authenticate", "Basic")
-            .finalize())
-    }
+pub struct AdminUser {
+    _priv: (),
 }
-
-pub struct AdminUser;
 
 impl AdminUser {
-    pub fn extract_password(rocket: &Rocket<impl Phase>) -> String {
-        #[derive(Deserialize)]
-        #[serde(crate = "rocket::serde")]
-        struct AdminPassword {
-            // Plaintext password. Yes, this is probably fine.
-            admin_password: String,
-        }
-
-        rocket
-            .figment()
-            .extract::<AdminPassword>()
-            .expect("admin_password was not provided!")
-            .admin_password
+    pub unsafe fn assert() -> Self {
+        Self { _priv: () }
     }
 }
 
-#[rocket::async_trait]
-impl<'r> FromRequest<'r> for AdminUser {
-    type Error = RequiresBasicAuthentication;
+impl<S> FromRequestParts<S> for AdminUser
+where
+    S: Send + Sync + AdminPasswordValidator,
+{
+    type Rejection = http::Response<String>;
 
-    async fn from_request(req: &'r Request<'_>) -> Outcome<Self, Self::Error> {
-        let expected_auth = format!(
-            "Basic {}",
-            general_purpose::STANDARD
-                .encode(format!("admin:{}", Self::extract_password(req.rocket())).as_bytes())
-        );
-
-        if let Some(header) = req.headers().get_one("Authorization") {
-            if header.trim() == expected_auth {
-                return Outcome::Success(AdminUser);
+    fn from_request_parts(
+        parts: &mut axum::http::request::Parts,
+        state: &S,
+    ) -> impl Future<Output = Result<Self, Self::Rejection>> + Send {
+        async move {
+            match AuthBasic::from_request_parts(parts, state).await {
+                Ok(AuthBasic((user, Some(password))))
+                    if user == "admin"
+                        && state.validate_admin_password(password.clone().into()) =>
+                {
+                    Ok(unsafe { Self::assert() })
+                }
+                _ => Err(http::Response::builder()
+                    .status(StatusCode::UNAUTHORIZED)
+                    .header("WWW-Authenticate", r#"Basic realm="Dev", charset="UTF-8""#)
+                    .body("".into())
+                    .unwrap()),
             }
-            return Outcome::Failure((Status::Forbidden, RequiresBasicAuthentication));
         }
-
-        Outcome::Forward(())
     }
 }
 
-#[get("/admin", rank = 2)]
-pub fn admin_unauthenticated() -> RequiresBasicAuthentication {
-    RequiresBasicAuthentication
+pub fn admin_subrouter<S>() -> Router<S>
+where
+    S: AdminPasswordValidator + Clone + Send + Sync + 'static,
+    Persisted<DynamicSettings>: FromRef<S>,
+{
+    let router = Router::new()
+        .route("/", get(admin_page))
+        .route("/profiles", post(create_profile_form))
+        .route("/activateProfile", post(activate_profile_form))
+        .route("/deleteProfile", post(delete_profile_form));
+    router
 }
 
-#[get("/admin?<error>", rank = 1)]
-pub async fn admin_page(
+#[axum::debug_handler(state = ArmQRState)]
+async fn admin_page(
     _admin: AdminUser,
-    error: Option<&'_ str>,
-    state: &State<ArmQRState>,
-) -> RawHtml<String> {
+    Query(params): Query<HashMap<String, String>>,
+    State(settings): State<Persisted<DynamicSettings>>,
+) -> Html<String> {
     let page = {
-        let lock = state.config.lock().await;
-        let config = lock.read();
-        AdminPage { config, error }.render().unwrap()
+        let config = settings.snapshot().await;
+        AdminPage {
+            config: &config,
+            error: params.get("error").map(|x| x.as_str()),
+        }
+        .render()
+        .unwrap()
     };
-    RawHtml(page)
+    Html(page)
 }
 
-#[derive(FromForm)]
-pub struct NewProfileForm<'r> {
-    name: Option<&'r str>,
-    redirect_uri: &'r str,
+#[derive(Deserialize)]
+struct NewProfileForm {
+    name: Option<String>,
+    redirect_uri: String,
 }
 
-#[post("/admin/profiles", data = "<form>")]
-pub async fn new_profile_form(
+#[axum::debug_handler(state = ArmQRState)]
+async fn create_profile_form(
     _admin: AdminUser,
-    form: Form<NewProfileForm<'_>>,
-    state: &State<ArmQRState>,
+    State(settings): State<Persisted<DynamicSettings>>,
+    Form(form): Form<NewProfileForm>,
 ) -> Redirect {
-    if form.redirect_uri.is_empty() {
-        return Redirect::to("/admin?error=bad_uri");
-    }
-
-    let mut config = {
-        let lock = state.config.lock().await;
-        lock.read().clone()
+    if let Err(e) = validate_url(&form.redirect_uri) {
+        return Redirect::to(&format!(
+            "/admin{}",
+            QueryString::dynamic().with_value("error", e.to_string())
+        ));
     };
 
     let name = match form.name {
@@ -124,6 +116,8 @@ pub async fn new_profile_form(
         None => format!("Redirect: {}", form.redirect_uri),
     };
     let id = Uuid::new_v4();
+
+    let mut config = settings.snapshot().await.as_ref().clone();
     config.profiles.insert(
         id,
         Profile {
@@ -132,34 +126,46 @@ pub async fn new_profile_form(
         },
     );
 
-    {
-        let mut lock = state.config.lock().await;
-        lock.store(config).await;
-    }
+    settings.store(config).await;
 
     Redirect::to("/admin")
 }
 
-#[derive(FromForm)]
-pub struct ActivateProfileForm<'a> {
-    id: &'a str,
+fn validate_url(url: &str) -> Result<(), Box<dyn Error>> {
+    if url.is_empty() {
+        Err("no URL provided")?
+    }
+
+    let url = url.parse::<http::Uri>()?;
+
+    if url.scheme().is_none() {
+        Err("missing scheme")?
+    }
+
+    if url.host().is_none() {
+        Err("missing host")?
+    }
+
+    Ok(())
 }
 
-#[post("/admin/activateProfile", data = "<form>")]
-pub async fn activate_profile_form(
+#[derive(Deserialize)]
+struct ActivateProfileForm {
+    id: String,
+}
+
+#[axum::debug_handler(state = ArmQRState)]
+async fn activate_profile_form(
     _admin: AdminUser,
-    form: Form<ActivateProfileForm<'_>>,
-    state: &State<ArmQRState>,
+    State(settings): State<Persisted<DynamicSettings>>,
+    Form(form): Form<ActivateProfileForm>,
 ) -> Redirect {
-    let uuid = match Uuid::from_str(form.id) {
+    let uuid = match Uuid::from_str(&form.id) {
         Ok(uuid) => uuid,
         Err(_) => return Redirect::to("/admin?error=bad_uuid"),
     };
 
-    let mut config = {
-        let lock = state.config.lock().await;
-        lock.read().clone()
-    };
+    let mut config = settings.snapshot_cloned().await;
 
     if !config.profiles.contains_key(&uuid) {
         return Redirect::to("/admin?error=bad_uuid");
@@ -167,41 +173,58 @@ pub async fn activate_profile_form(
 
     config.current_profile_id = uuid;
 
-    {
-        let mut lock = state.config.lock().await;
-        lock.store(config).await;
-    }
+    settings.store(config).await;
 
     Redirect::to("/admin")
 }
 
-#[derive(FromForm)]
-pub struct DeleteProfileForm<'a> {
-    id: &'a str,
+#[derive(Deserialize)]
+struct DeleteProfileForm {
+    id: String,
 }
 
-#[post("/admin/deleteProfile", data = "<form>")]
-pub async fn delete_profile_form(
+#[axum::debug_handler(state = ArmQRState)]
+async fn delete_profile_form(
     _admin: AdminUser,
-    form: Form<DeleteProfileForm<'_>>,
-    state: &State<ArmQRState>,
+    State(settings): State<Persisted<DynamicSettings>>,
+    Form(form): Form<DeleteProfileForm>,
 ) -> Redirect {
-    let uuid = match Uuid::from_str(form.id) {
+    let uuid = match Uuid::from_str(&form.id) {
         Ok(uuid) => uuid,
         Err(_) => return Redirect::to("/admin?error=bad_uuid"),
     };
 
-    let mut config = {
-        let lock = state.config.lock().await;
-        lock.read().clone()
-    };
+    let mut config = settings.snapshot_cloned().await;
 
     config.profiles.remove(&uuid);
 
-    {
-        let mut lock = state.config.lock().await;
-        lock.store(config).await;
-    }
+    settings.store(config).await;
 
     Redirect::to("/admin")
+}
+
+#[cfg(test)]
+mod test {
+    use rstest::rstest;
+
+    use super::*;
+
+    #[rstest]
+    #[case("https://google.com")]
+    #[case("https://astrid.tech")]
+    #[case("http://astrid.tech")]
+    #[case("ftp://some/server")]
+    fn test_validate_url_is_successful(#[case] input: &str) {
+        validate_url(input).expect("does not validate");
+    }
+
+    #[rstest]
+    #[case("")]
+    #[case("foo")]
+    #[case("bar")]
+    #[case("astrid.tech")]
+    #[case("bar/spam")]
+    fn test_validate_url_fails(#[case] input: &str) {
+        validate_url(input).expect_err("wrongly validates");
+    }
 }

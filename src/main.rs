@@ -1,65 +1,80 @@
 mod admin;
 mod config;
 
-#[macro_use]
-extern crate rocket;
-#[macro_use]
-extern crate serde;
+use std::net::IpAddr;
 
-use crate::admin::activate_profile_form;
-use crate::admin::admin_page;
-use crate::admin::admin_unauthenticated;
-use crate::admin::delete_profile_form;
-use crate::admin::new_profile_form;
-use crate::config::ConfigFile;
-use admin::AdminUser;
-use config::Action;
-use rocket::tokio::sync::Mutex;
-use rocket::State;
-use std::sync::Arc;
+use crate::{
+    admin::admin_subrouter,
+    config::{Action, DynamicSettings, Persisted},
+};
+use axum::{
+    Router,
+    extract::{FromRef, State},
+    response::Redirect,
+    routing::get,
+};
+use clap::Parser as _;
+use sec::Secret;
 
-use askama::Template;
-use rocket::response::Redirect;
-use rocket::response::Responder;
+#[derive(clap::Parser)]
+pub struct Args {
+    /// IP address to listen on
+    #[arg(short, long, default_value = "::")]
+    pub address: IpAddr,
 
-#[get("/")]
-async fn index(state: &State<ArmQRState>) -> Redirect {
-    let profile = {
-        let lock = state.config.lock().await;
-        lock.read().current_profile().clone()
+    /// Port to listen on
+    #[arg(short, long, default_value = "3000")]
+    pub port: u16,
+}
+
+#[tokio::main]
+async fn main() {
+    let args = Args::parse();
+
+    let state = ArmQRState {
+        settings: Persisted::open("redirect_config.toml".into()).await,
+        password: std::env::var("ADMIN_PASSWORD")
+            .expect("ADMIN_PASSWORD not provided")
+            .into(),
     };
+    let app = Router::new()
+        .route("/", get(index))
+        .nest("/admin", admin_subrouter())
+        .with_state(state);
 
-    match profile.action {
-        Action::Redirect(uri) => Redirect::to(uri),
+    let listener = tokio::net::TcpListener::bind(("::", args.port))
+        .await
+        .unwrap();
+    axum::serve(listener, app).await.unwrap();
+}
+
+#[derive(Clone)]
+pub struct ArmQRState {
+    settings: Persisted<DynamicSettings>,
+    password: Secret<String>,
+}
+
+pub trait AdminPasswordValidator {
+    fn validate_admin_password(&self, input: Secret<String>) -> bool;
+}
+
+impl AdminPasswordValidator for ArmQRState {
+    fn validate_admin_password(&self, input: Secret<String>) -> bool {
+        self.password == input
     }
 }
 
-#[derive(Template)]
-#[template(path = "redirect.html")]
-struct RedirectTemplate<'a> {
-    escaped_url: &'a str,
+impl FromRef<ArmQRState> for Persisted<DynamicSettings> {
+    fn from_ref(input: &ArmQRState) -> Self {
+        input.settings.clone()
+    }
 }
 
-pub struct ArmQRState {
-    config: Arc<Mutex<ConfigFile>>,
-}
+#[axum::debug_handler]
+async fn index(State(state): State<Persisted<DynamicSettings>>) -> Redirect {
+    let profile = state.snapshot().await;
 
-#[launch]
-fn rocket() -> _ {
-    let rocket = rocket::build();
-    let state = ArmQRState {
-        config: Arc::new(Mutex::new(ConfigFile::extract_from_config(&rocket))),
-    };
-    AdminUser::extract_password(&rocket);
-    rocket.manage(state).mount(
-        "/",
-        routes![
-            index,
-            admin_page,
-            admin_unauthenticated,
-            new_profile_form,
-            activate_profile_form,
-            delete_profile_form,
-        ],
-    )
+    match &profile.current_profile().action {
+        Action::Redirect(uri) => Redirect::to(&uri),
+    }
 }
