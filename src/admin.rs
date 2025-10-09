@@ -53,7 +53,7 @@ where
                 }
                 _ => Err(http::Response::builder()
                     .status(StatusCode::UNAUTHORIZED)
-                    .header("WWW-Authenticate", r#"Basic realm="Dev", charset="UTF-8""#)
+                    .header("WWW-Authenticate", r#"Basic realm="bites u bites u bites u bites u b", charset="UTF-8""#)
                     .body("".into())
                     .unwrap()),
             }
