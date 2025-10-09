@@ -1,7 +1,7 @@
 mod admin;
 mod config;
 
-use std::net::IpAddr;
+use std::{net::IpAddr, path::PathBuf};
 
 use crate::{
     admin::admin_subrouter,
@@ -26,6 +26,10 @@ pub struct Args {
     /// Port to listen on
     #[arg(short, long, default_value = "3000")]
     pub port: u16,
+
+    /// Path to dynamic settings
+    #[arg(long, default_value = "settings.toml")]
+    pub dynamic_settings_path: PathBuf,
 }
 
 #[tokio::main]
@@ -39,10 +43,11 @@ async fn main() {
                     .from_env_lossy(),
             )
             .finish(),
-    ).unwrap();
+    )
+    .unwrap();
 
     let state = ArmQRState {
-        settings: Persisted::open("redirect_config.toml".into()).await,
+        settings: Persisted::open(args.dynamic_settings_path).await,
         password: std::env::var("ADMIN_PASSWORD")
             .expect("ADMIN_PASSWORD not provided")
             .into(),
@@ -52,7 +57,7 @@ async fn main() {
         .nest("/admin", admin_subrouter())
         .with_state(state);
 
-    let listener = tokio::net::TcpListener::bind(("::", args.port))
+    let listener = tokio::net::TcpListener::bind((args.address, args.port))
         .await
         .unwrap();
     info!("Listening on {:?}", listener.local_addr().unwrap());

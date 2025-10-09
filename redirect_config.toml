@@ -1,7 +1,0 @@
-current_profile_id = "c4756439-f326-4a68-9bd2-b7591fb2cf81"
-
-[profiles.c4756439-f326-4a68-9bd2-b7591fb2cf81]
-name = "https://astrid.tech"
-
-[profiles.c4756439-f326-4a68-9bd2-b7591fb2cf81.action]
-Redirect = "https://astrid.tech"
