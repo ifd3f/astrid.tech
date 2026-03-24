@@ -489,5 +489,7 @@ learning how actual initramfses work in real life.
 I didn't actually do this. I went straight to the stupider option.
 
 When your computer reboots, the firmware clears the RAM so that the new OS can't
-read secrets out of the old OS.
-[I figured out a way to make an initramfs dodge that.](../../2/how-to-pass-secrets-between-reboots)
+read secrets out of the old OS. I figured out a way to make an initramfs dodge
+that.
+
+_[Continued in part 2.](../../2/how-to-pass-secrets-between-reboots)_

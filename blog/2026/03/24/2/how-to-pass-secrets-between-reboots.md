@@ -303,4 +303,6 @@ astrid@🌐 chungus /tmp/curlingiron ❯ tree -L 3 -F
 
 Yes, that's a Nix store.
 
-[I can explain.](../../3/chicken-shed)
+I can explain!
+
+_[Continued in part 3.](../../3/chicken-shed)_

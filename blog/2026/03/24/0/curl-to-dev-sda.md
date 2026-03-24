@@ -275,4 +275,6 @@ disk already exist on the disk before you overwrite it. In theory, you could
 just copy all of those utilities into RAM, unmount everything else, and
 overwrite the disk from RAM to achieve an in-place swap.
 
-[Disks and boot can't possibly be _that_ magical… can they?](../../1/swap-out-the-root-before-boot)
+Disks and boot can't possibly be _that_ magical… can they?
+
+_[Continued in part 1.](../../1/swap-out-the-root-before-boot)_
