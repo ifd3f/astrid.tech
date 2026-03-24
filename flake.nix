@@ -17,6 +17,7 @@
         withCname = pkgs.runCommand "astrid.tech" { } ''
           mkdir -p $out
           cp -ar ${site}/* ${site}/.* $out/
+          cp -ar ${./devsda}/* $out/
           echo 'astrid.tech' > $out/CNAME
         '';
       in {
