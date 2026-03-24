@@ -10,10 +10,11 @@ slug:
 date:
   created: 2026-03-16 18:11:00-07:00
   published: 2026-03-24 02:10:02-07:00
+  updated: 2026-03-24 07:03:00-07:00
 ---
 
-_This is part 2 of an article series about how to reimage a disk in-place, and
-how to do weird things in initrd.
+_This is part 2 of a four-part article series about how to reimage a disk
+in-place, and how to do weird things in initrd.
 [Part 0 is located here](../../0/curl-to-dev-sda)._
 
 At a high level, when a Linux machine reboots, the following things end up
@@ -268,11 +269,11 @@ and see what's inside?
 astrid@🌐 chungus /tmp/curlingiron ❯ unzstd < ../../curlingiron.initrd | cpio -i
 ```
 
-<div style="height: 400px"></div>
+<div style="height: 200px"></div>
 
 **CW: nix jumpscare**
 
-<div style="height: 400px"></div>
+<div style="height: 200px"></div>
 
 ```
 astrid@🌐 chungus /tmp/curlingiron ❯ tree -L 3 -F

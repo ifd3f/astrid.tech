@@ -11,12 +11,14 @@ slug:
   name: chicken-shed
 date:
   created: 2026-03-16 18:11:00-07:00
-  published: 2026-03-24 02:10:01-07:00
+  published: 2026-03-24 02:10:03-07:00
+  updated: 2026-03-24 07:03:00-07:00
 ---
 
-_This is part 3 of an article series about how to reimage a disk in-place, how
-to do weird things in initrd, and… well, now I guess it's about how to build
-your own Linux distro. [Part 0 is located here.](../../0/curl-to-dev-sda)_
+_This is the third and final part of a four-part article series about how to
+reimage a disk in-place, how to do weird things in initrd, and… well, now I
+guess it's about how to build your own Linux distro.
+[Part 0 is located here.](../../0/curl-to-dev-sda)_
 
 Some of you are about to angrily comment or email something like “grrrr!
 [NixOS Anywhere](https://github.com/nix-community/nixos-anywhere) already does
@@ -385,7 +387,7 @@ There is a parable about a committee arguing about bikeshed at a nuclear power
 plant. Even though the nuclear power plant is clearly the more important thing,
 the committee spends more time talking about the bike shed than the power plant.
 
-The solution to bikeshedding is usually focus on the nuclear power plant and
+The solution to bikeshedding is that you focus on the nuclear power plant and
 drop the bike shed.
 
 I guess you could call what I did "chickenshedding": I dropped the nuclear power
@@ -396,8 +398,8 @@ astrid@🌐 chungus ~  ❯ du -sh /tmp/curlingiron.initrd
 6.1M	/tmp/curlingiron.initrd
 ```
 
-From a 292MB initramfs, we now have a **6.1MB** initramfs, made entirely to run
-`busybox wget | dd`, and smaller than almost every other distro's initramfs.
+From a 292MB initramfs, we now have a **6.1MB** initramfs, smaller than almost
+every other distro's initramfs and made entirely to run `busybox wget | dd`.
 
 It doesn't check SSL certs because the default Busybox `wget` provided by
 Nixpkgs doesn't check SSL certs.
@@ -425,7 +427,7 @@ What function this serves is left as an exercise for the reader.
 [^2]:
     And unlike NixOS, this one follows
     [FHS](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard)!
-    [Just look at the tree output in part 2.](../../2/persist-volatile-memory-in-ram/#header-and-now-for-the-gore)
+    [Just look at the tree output in part 2.](../../2/how-to-pass-secrets-between-reboots/#header-and-now-for-the-gore)
     /bin and /lib are symlinks, but they're also symlinks on Debian due to
     [UsrMerge](https://systemd.io/THE_CASE_FOR_THE_USR_MERGE/). You can't win.
     Nobody can win.

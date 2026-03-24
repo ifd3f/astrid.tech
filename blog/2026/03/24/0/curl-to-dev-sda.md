@@ -1,5 +1,5 @@
 ---
-title: curl > dev/sda
+title: curl > /dev/sda
 tagline: How I made a Linux distro that runs `wget | dd`
 tags:
   - linux
@@ -9,8 +9,12 @@ slug:
   name: curl-to-dev-sda
 date:
   created: 2026-03-16 18:11:00-07:00
-  published: 2026-03-24 02:10:04-07:00
+  published: 2026-03-24 02:10:00-07:00
+  updated: 2026-03-24 07:03:00-07:00
 ---
+
+_This is part 0 of a four-part series about doing weird things in early Linux
+boot._
 
 To replace your Linux installation with a new OS, you can download a
 pre-prepared disk image directly to your disk by running a command like this:
@@ -271,4 +275,4 @@ disk already exist on the disk before you overwrite it. In theory, you could
 just copy all of those utilities into RAM, unmount everything else, and
 overwrite the disk from RAM to achieve an in-place swap.
 
-[Disks and boot can't possibly be _that_ magical… can they? In the next three parts, we will be finding out exactly what is going on down there.](../../1/swap-out-the-root-before-boot)
+[Disks and boot can't possibly be _that_ magical… can they?](../../1/swap-out-the-root-before-boot)
