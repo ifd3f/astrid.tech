@@ -22,7 +22,7 @@ guess it's about how to build your own Linux distro.
 
 Some of you are about to angrily comment or email something like “grrrr!
 [NixOS Anywhere](https://github.com/nix-community/nixos-anywhere) already does
-[that kexec technique you were describing in part 2](../../2/how-to-persist-volatile-memory#introducing-curlingiron)
+[that kexec technique you were describing in part 2](../../2/how-to-pass-secrets-between-reboots#header-introducing-curlingiron)
 and you STOLE it from them! grrrrrrr!”
 
 I would like to respond with a correction, which is that I did not just steal
