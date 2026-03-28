@@ -12,7 +12,7 @@ slug:
 date:
   created: 2026-03-16 18:11:00-07:00
   published: 2026-03-24 02:10:03-07:00
-  updated: 2026-03-24 07:03:00-07:00
+  updated: 2026-03-28 06:40:00-07:00
 ---
 
 _This is the third and final part of a four-part article series about how to
@@ -423,6 +423,9 @@ curl https://astrid.tech/rkx.gz | gunzip | sudo sh
 ```
 
 What function this serves is left as an exercise for the reader.
+
+Or, of course, you can watch me open it up in
+[part 5, the addendum I added later on.](https://astrid.tech/2026/03/28/0/linux-is-an-interpreter/)
 
 [^2]:
     And unlike NixOS, this one follows
