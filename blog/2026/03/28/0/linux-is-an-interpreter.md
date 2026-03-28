@@ -14,6 +14,7 @@ slug:
 date:
   created: 2026-03-27 12:30:00-07:00
   published: 2026-03-28 06:33:00-07:00
+  updated: 2026-03-28 15:58:00-07:00
 ---
 
 **This is a standalone addendum to an earlier four-part series.** Reading the
@@ -532,7 +533,9 @@ Probing EDD (edd=off to disable)... o
 [    0.015525] MTRR map: 4 entries (3 fixed + 1 variable; max 19), built from 8 variable MTRRs
 ```
 
-The interpreter for CPIO files is the kernel of a virtual OS on the OS you run
+The interpreter for CPIO files is the kernel of a virtual OS.
+
+The interpreter of that kernel is QEMU, virtualizing a computer on the OS you ran
 it from.
 
 ## The strangest loop
@@ -554,7 +557,7 @@ kexec --exec
 ```
 
 Then let's put it in that piece of malware I gave you at
-`/bin/cpio-interpreter`, and have `/init` register it as a binfmt handler:
+`/bin/cpio-interpreter`, and update the `/init` in the initramfs to register it as a binfmt handler:
 
 ```sh
 #!/bin/sh
@@ -584,9 +587,11 @@ In most cases, using binfmt to execute scripts has to bottom out. Your
 `#!/bin/sh` script has to be interpreted by `/bin/sh` which has to be
 interpreted by `ld.so` which has to be interpreted directly by the kernel.
 
-I've made a binfmt interpreter that runs another kernel and never bottoms out.
+I've made a binfmt interpreter that runs a CPIO using another kernel and never bottoms out.
 
 The interpreter for CPIO files on this system is the kernel of its next reboot.
+
+The interpreter of that kernel is the computer itself.
 
 ## Conclusion
 
