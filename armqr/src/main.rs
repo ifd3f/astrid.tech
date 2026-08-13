@@ -1,0 +1,97 @@
+mod admin;
+mod config;
+
+use std::{net::IpAddr, path::PathBuf};
+
+use crate::{
+    admin::admin_subrouter,
+    config::{Action, DynamicSettings, Persisted},
+};
+use axum::{
+    Router,
+    extract::{FromRef, State},
+    response::Redirect,
+    routing::get,
+};
+use clap::Parser as _;
+use sec::Secret;
+use tracing::info;
+
+#[derive(clap::Parser)]
+pub struct Args {
+    /// IP address to listen on
+    #[arg(short, long, default_value = "::")]
+    pub address: IpAddr,
+
+    /// Port to listen on
+    #[arg(short, long, default_value = "3000")]
+    pub port: u16,
+
+    /// Path to dynamic settings
+    #[arg(long, default_value = "settings.toml")]
+    pub dynamic_settings_path: PathBuf,
+}
+
+#[tokio::main]
+async fn main() {
+    let args = Args::parse();
+    tracing::subscriber::set_global_default(
+        tracing_subscriber::fmt()
+            .with_env_filter(
+                tracing_subscriber::EnvFilter::builder()
+                    .with_default_directive(tracing::Level::INFO.into())
+                    .from_env_lossy(),
+            )
+            .finish(),
+    )
+    .unwrap();
+
+    let state = ArmQRState {
+        settings: Persisted::open(args.dynamic_settings_path).await,
+        password: std::env::var("ADMIN_PASSWORD")
+            .expect("ADMIN_PASSWORD not provided")
+            .into(),
+    };
+    let app = Router::new()
+        .route("/", get(index))
+        .nest("/admin", admin_subrouter())
+        .with_state(state);
+
+    let listener = tokio::net::TcpListener::bind((args.address, args.port))
+        .await
+        .unwrap();
+    info!("Listening on {:?}", listener.local_addr().unwrap());
+
+    axum::serve(listener, app).await.unwrap();
+}
+
+#[derive(Clone)]
+pub struct ArmQRState {
+    settings: Persisted<DynamicSettings>,
+    password: Secret<String>,
+}
+
+pub trait AdminPasswordValidator {
+    fn validate_admin_password(&self, input: Secret<String>) -> bool;
+}
+
+impl AdminPasswordValidator for ArmQRState {
+    fn validate_admin_password(&self, input: Secret<String>) -> bool {
+        self.password == input
+    }
+}
+
+impl FromRef<ArmQRState> for Persisted<DynamicSettings> {
+    fn from_ref(input: &ArmQRState) -> Self {
+        input.settings.clone()
+    }
+}
+
+#[axum::debug_handler]
+async fn index(State(state): State<Persisted<DynamicSettings>>) -> Redirect {
+    let profile = state.snapshot().await;
+
+    match &profile.current_profile().action {
+        Action::Redirect(uri) => Redirect::to(&uri),
+    }
+}
